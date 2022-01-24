@@ -4,6 +4,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.MoreObjects;
+import java.io.Serializable;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -14,7 +15,7 @@ import org.batfish.common.BatfishException;
  * reason for the action
  */
 @ParametersAreNonnullByDefault
-public final class RouteAdvertisement<T> {
+public final class RouteAdvertisement<T> implements Serializable {
   @Nonnull private final T _route;
   @Nonnull private final Reason _reason;
 

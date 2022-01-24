@@ -294,13 +294,15 @@ final class IncrementalBdpEngine {
         map.put(hostName, logs);
         //        toFileTimeAllNodes+=logs.getToFileTime();
       }
-      double k = Math.sqrt((4*map.size())/5);
+//      double k = Math.sqrt((4*map.size())/5);
       long endTime1 = System.currentTimeMillis();
+
+      System.out.println("**********dir: "+System.getProperty("user.dir"));
 
       //log
       nodes.values().parallelStream()  //parallelStream()
           .flatMap(n -> n.getVirtualRouters().stream()).forEach(vr -> {
-        String path1 = "/home/yrl/Desktop/batfish-2021-03-16-minesweeper/log-serialize/fattree"+ String.valueOf((int) k)+"/";
+        String path1 = System.getProperty("user.dir")+"/log-serialize/"+map.size()+"nodes"+"/";
         vr._logs.toFileSerializable(path1);
       });
       long endTime2 = System.currentTimeMillis();
@@ -308,7 +310,7 @@ final class IncrementalBdpEngine {
       for (BgpLogs logs: map.values()){
         toFileTimeAllNodes+=logs.getToFileTime();
       }
-      System.out.println("K : "+k);
+//      System.out.println("K : "+k);
       System.out.println("ToFileTimeAllNodes: " + toFileTimeAllNodes);
 
       // Generate the answers from the computation, compute final FIBs

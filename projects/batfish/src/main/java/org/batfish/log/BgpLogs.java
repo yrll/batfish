@@ -104,9 +104,13 @@ public class BgpLogs implements Serializable {
   }
 
   public void toFileSerializable(String path){
-    path = path + _hostName + "-bgplog.json";
+    File file = new File(path + _hostName);
+    System.out.println("writing: "+file.getPath());
+    if (!file.getParentFile().exists()){
+      file.getParentFile().mkdirs();
+    }
     try {
-      ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(path));
+      ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(file));
       os.writeObject(this);
       os.close();
     } catch (IOException e) {
