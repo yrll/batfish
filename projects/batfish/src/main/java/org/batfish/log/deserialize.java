@@ -34,6 +34,7 @@ public class deserialize {
             }
             System.out.println("finish: "+ i);
         }
+        System.out.println("done");
 //        long startTime = System.currentTimeMillis();
 //        for (int i =1; i<4000; i++){
 //            System.out.println("fvdfbfbf"+i%45);
@@ -65,8 +66,6 @@ public class deserialize {
 //            long endTime = System.currentTimeMillis();
 //            System.out.println("runTime of deserialize: "+ (endTime-startTime));
 //        }
-
-
     }
 
 }

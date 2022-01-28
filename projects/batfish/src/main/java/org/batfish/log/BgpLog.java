@@ -15,6 +15,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import org.batfish.datamodel.AbstractRoute;
 import org.batfish.datamodel.Bgpv4Route;
+import org.batfish.datamodel.Prefix;
 import org.batfish.dataplane.rib.RouteAdvertisement;
 
 public class BgpLog implements Serializable {
@@ -372,5 +373,6 @@ public class BgpLog implements Serializable {
       e.printStackTrace();
     }
   }
+
 
 }

@@ -25,7 +25,7 @@ import org.batfish.datamodel.route.nh.NextHopVrf;
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "class")
 @ParametersAreNonnullByDefault
-public abstract class AbstractRoute implements AbstractRouteDecorator, Serializable {
+public abstract class AbstractRoute implements AbstractRouteDecorator, Serializable{
 
   // unsigned 32-bit int max
   public static final long MAX_TAG = 0xFFFFFFFFL;
@@ -240,4 +240,6 @@ public abstract class AbstractRoute implements AbstractRouteDecorator, Serializa
           return nextHopVrf.getVrfName();
         }
       };
+
+
 }

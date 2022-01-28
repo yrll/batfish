@@ -23,6 +23,20 @@
       <groupId>org.batfish</groupId>
       <artifactId>batfish</artifactId>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+<!--    <dependency>-->
+<!--      <groupId></groupId>-->
+<!--      <artifactId>hamcrest</artifactId>-->
+<!--    </dependency>-->
   </dependencies>
 
   <properties>

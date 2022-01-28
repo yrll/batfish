@@ -33,7 +33,7 @@ public abstract class BgpRoute<B extends Builder<B, R>, R extends BgpRoute<B, R>
         HasReadableCommunities,
         HasReadableLocalPreference,
         HasReadableOriginType,
-        HasReadableWeight {
+        HasReadableWeight{
 
   /** Local-preference has a maximum value of u32 max. */
   public static final long MAX_LOCAL_PREFERENCE = (1L << 32) - 1;
@@ -465,4 +465,6 @@ public abstract class BgpRoute<B extends Builder<B, R>, R extends BgpRoute<B, R>
   private @Nonnull CommunitySet getJsonCommunities() {
     return _communities;
   }
+
+
 }
