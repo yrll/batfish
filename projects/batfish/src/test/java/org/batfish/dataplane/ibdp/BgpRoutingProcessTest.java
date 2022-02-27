@@ -77,6 +77,7 @@ import org.batfish.datamodel.vxlan.Layer2Vni;
 import org.batfish.dataplane.rib.Rib;
 import org.batfish.dataplane.rib.RibDelta;
 import org.batfish.dataplane.rib.RouteAdvertisement;
+import org.batfish.log.BgpLogs;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -115,7 +116,7 @@ public class BgpRoutingProcessTest {
     _vrf2.setBgpProcess(_bgpProcess2);
     _routingProcess =
         new BgpRoutingProcess(
-            _bgpProcess, _c, DEFAULT_VRF_NAME, new Rib(), BgpTopology.EMPTY, new PrefixTracer());
+            _bgpProcess, _c, DEFAULT_VRF_NAME, new Rib(), BgpTopology.EMPTY, new PrefixTracer(), new BgpLogs());
   }
 
   @Test
@@ -352,7 +353,7 @@ public class BgpRoutingProcessTest {
     BgpTopology topology = new BgpTopology(graph);
     BgpRoutingProcess routingProcess =
         new BgpRoutingProcess(
-            bgpProc, _c, DEFAULT_VRF_NAME, new Rib(), topology, new PrefixTracer());
+            bgpProc, _c, DEFAULT_VRF_NAME, new Rib(), topology, new PrefixTracer(),new BgpLogs());
 
     // No compatible peers for IPv4
     assertThat(
@@ -556,7 +557,7 @@ public class BgpRoutingProcessTest {
     // re-init routing process after modifying configuration.
     _routingProcess =
         new BgpRoutingProcess(
-            _bgpProcess, _c, DEFAULT_VRF_NAME, new Rib(), BgpTopology.EMPTY, new PrefixTracer());
+            _bgpProcess, _c, DEFAULT_VRF_NAME, new Rib(), BgpTopology.EMPTY, new PrefixTracer(),new BgpLogs());
 
     Prefix prefix = Prefix.parse("1.1.1.0/24");
 
@@ -611,7 +612,7 @@ public class BgpRoutingProcessTest {
     // re-init routing process after modifying configuration.
     _routingProcess =
         new BgpRoutingProcess(
-            _bgpProcess, _c, DEFAULT_VRF_NAME, new Rib(), BgpTopology.EMPTY, new PrefixTracer());
+            _bgpProcess, _c, DEFAULT_VRF_NAME, new Rib(), BgpTopology.EMPTY, new PrefixTracer(),new BgpLogs());
 
     String otherVrf = "otherVrf";
     // Process denied prefix, specify policy

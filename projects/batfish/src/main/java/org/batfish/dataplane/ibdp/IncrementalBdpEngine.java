@@ -12,6 +12,7 @@ import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.computeVxlanTopolog
 import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.prunedVxlanTopology;
 import static org.batfish.dataplane.rib.AbstractRib.importRib;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -303,7 +304,12 @@ final class IncrementalBdpEngine {
       nodes.values().parallelStream()  //parallelStream()
           .flatMap(n -> n.getVirtualRouters().stream()).forEach(vr -> {
         String path1 = System.getProperty("user.dir")+"/log-serialize/"+map.size()+"nodes"+"/";
-        vr._logs.toFileSerializable(path1);
+//        vr._logs.toFileSerializable(path1);
+        try {
+          vr._logs.toFileJson(path1);
+        } catch (JsonProcessingException e) {
+          e.printStackTrace();
+        }
       });
       long endTime2 = System.currentTimeMillis();
       System.out.println("total: " + (endTime2 - startTime));

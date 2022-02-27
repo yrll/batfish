@@ -5,6 +5,7 @@ package org.batfish.log;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -36,6 +37,7 @@ public class BgpLogs implements Serializable {
   private ArrayList<BgpLog> _logs;
   @JsonIgnore
   private ArrayList<Long> runTime;
+  @JsonIgnore
   private long toFileTime;
 
   public BgpLogs(){}
@@ -117,5 +119,24 @@ public class BgpLogs implements Serializable {
       e.printStackTrace();
     }
   }
+
+  public void toFileJson(String path) throws JsonProcessingException {
+
+
+    File file = new File(path + _hostName);
+    System.out.println("writing: "+file.getPath());
+    if (!file.getParentFile().exists()){
+      file.getParentFile().mkdirs();
+    }
+    ObjectMapper mapper = new ObjectMapper();
+    //    String json = mapper.writeValueAsString(_logs);
+
+    try {
+      mapper.writeValue(file, _logs);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  public void y(){}
 
 }
