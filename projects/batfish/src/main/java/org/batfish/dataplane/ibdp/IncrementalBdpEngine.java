@@ -49,6 +49,7 @@ import org.batfish.datamodel.BgpAdvertisement;
 import org.batfish.datamodel.BgpPeerConfigId;
 import org.batfish.datamodel.BgpSessionProperties;
 import org.batfish.datamodel.Configuration;
+import org.batfish.datamodel.Edge;
 import org.batfish.datamodel.Ip;
 import org.batfish.datamodel.IsisRoute;
 import org.batfish.datamodel.NetworkConfigurations;
@@ -254,13 +255,12 @@ final class IncrementalBdpEngine {
       boolean converged = false;
       // try to record Topo connection & routingpolicy
       String root_path = System.getProperty("user.dir")+"/log-serialize/"+nodes.size()+"nodes"+"/";
-      dumpBGPTopo(currentTopologyContext.getBgpTopology(), root_path);
+      dumpBGPTopo(currentTopologyContext, root_path);
 
       File file = new File(root_path + "rmap");
       System.out.println("writing: "+file.getPath());
       if (!file.getParentFile().exists()){
-        file.getParentFile().mkdirs();
-      }
+        file.getParentFile().mkdirs();top      }
       ObjectMapper mapper = new ObjectMapper();
       //    String json = mapper.writeValueAsString(_logs);
 
@@ -1047,7 +1047,7 @@ final class IncrementalBdpEngine {
       }
     }
   }
-  private void dumpBGPTopo(BgpTopology bgpTopology, String path) {
+  private void dumpBGPTopo(TopologyContext topologyContext, String path) {
     try {
       String content = "This is the content to write into file";
       File file = new File(path+"topo");
@@ -1058,12 +1058,14 @@ final class IncrementalBdpEngine {
 
       FileWriter fw = new FileWriter(file.getAbsoluteFile());
       BufferedWriter bw = new BufferedWriter(fw);
+      Topology topology = topologyContext.getLayer3Topology();
 //      bgpTopology.getGraph().get
-      List<ValueEdge<BgpPeerConfigId, BgpSessionProperties>> edges = bgpTopology.getEdges();
+      List<ValueEdge<BgpPeerConfigId, BgpSessionProperties>> edges = topologyContext.getBgpTopology().getEdges();
       int i = 0;
-      for (ValueEdge<BgpPeerConfigId, BgpSessionProperties> edge: edges) {
+      for (Edge edge: topology.getEdges()) {
         i++;
-        bw.write(edge.getSource().getHostname()+"|"+ edge.getTarget().getHostname());
+        bw.write(edge.getTail().getHostname()+","+edge.getTail().getInterface()+"|"+edge.getHead().getHostname()+","+edge.getHead().getInterface());
+//        bw.write(edge.getSource().getHostname()+","+ edge.getSource().getPeerInterface()+"|"+ edge.getTarget().getHostname()+","+edge.getTarget().getPeerInterface());
         bw.newLine();
       }
       System.out.println("*i*:"+i);
