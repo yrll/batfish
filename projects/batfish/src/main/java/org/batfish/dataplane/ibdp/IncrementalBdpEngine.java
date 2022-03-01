@@ -260,7 +260,8 @@ final class IncrementalBdpEngine {
       File file = new File(root_path + "rmap");
       System.out.println("writing: "+file.getPath());
       if (!file.getParentFile().exists()){
-        file.getParentFile().mkdirs();top      }
+        file.getParentFile().mkdirs();
+      }
       ObjectMapper mapper = new ObjectMapper();
       //    String json = mapper.writeValueAsString(_logs);
 
