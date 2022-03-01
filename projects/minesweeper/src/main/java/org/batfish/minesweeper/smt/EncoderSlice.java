@@ -870,7 +870,7 @@ class EncoderSlice {
     addForwardingVariables();
     addBestVariables();
     addSymbolicRecords();
-    addChoiceVariables();
+    addChoiceVariables();// directed edge with e&in
     addEnvironmentVariables();
   }
 

@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class StateGraphTest {
   public Map<String, BgpLogs> getLogsMap(String path) {
-    String networkName = "15nodes";
+    String networkName = "2nodes";
     //    networkName = path;
     //    String path1 = System.getProperty("user.dir")+"/log-serialize/"+networkName+"/";
     Map<String, BgpLogs> logsMap = new HashMap<String, BgpLogs>();
@@ -49,7 +49,7 @@ public class StateGraphTest {
   }
 
   @Test public void constructStateGraph() {
-    String networkName = "15nodes";
+    String networkName = "2nodes";
     String path = "/home/yrl/Desktop/batfish-2021-03-16-minesweeper/log-serialize/"+networkName+"/";
     Map<String, BgpLogs> logsMap = getLogsMap(path);
     BgpLogs logs = logsMap.get("as1border1");

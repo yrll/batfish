@@ -18,12 +18,12 @@ public class RibIn implements Serializable {
   private String selectedNeighbor;
 
   public RibIn() {
-    this.time = time;
     this.rib = new HashMap<>();
   }
 
   public RibIn(int time, Prefix prefix){
     this.time = time;
+    this.prefix = prefix;
     this.rib = new HashMap<>();
 //    this.selectedRoute = null;
   }
@@ -83,9 +83,9 @@ public class RibIn implements Serializable {
     }
   }
 
-  public AbstractRoute getPrefixInstalledRoute(BgpLog log, Prefix prefix) {
+  @Nullable public AbstractRoute getPrefixInstalledRoute(BgpLog log, Prefix prefix) {
     for (AbstractRoute route: log.get_installed()) {
-      if (route.getNetwork() == prefix) {
+      if (route.getNetwork().equals(prefix)) {
         return route;
       }
     }
@@ -95,7 +95,7 @@ public class RibIn implements Serializable {
     Map<String, AbstractRoute> ribIn = new HashMap<>();
     for (String neighbor: log.get_cause().keySet()) {
       for (RouteAdvertisement<Bgpv4Route> route: log.get_cause().get(neighbor)) {
-        if (route.getRoute().getNetwork() == prefix) {
+        if (route.getRoute().getNetwork().equals(prefix)) {
           ribIn.put(neighbor, route.getRoute());
           break;
         }
@@ -106,7 +106,7 @@ public class RibIn implements Serializable {
 
   public String getPrefixSelectedNeighbor(BgpLog log, Prefix prefix) {
     for (AbstractRoute route: log.get_installed()) {
-      if (route.getNetwork() == prefix) {
+      if (route.getNetwork().equals(prefix)) {
         for (String router : log.get_bgpReceived().keySet()) {
           for (AbstractRoute route1:log.get_bgpReceived().get(router)) {
             if (route.equals(route1)) {

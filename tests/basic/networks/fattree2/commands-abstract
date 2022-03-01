@@ -1,2 +1,4 @@
 init-snapshot tests/basic/networks/fattree2
 test abstract get smt-reachability finalIfaceRegex="Ethernet.*", stats=True, useAbstraction=True 
+
+init-snapshot networks/fattree-cfg/fattree4

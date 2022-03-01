@@ -7,6 +7,9 @@ add-batfish-option initinfo false
 
 # all tests with BGP only
 init-snapshot tests/java-smt/networks/BGP1 tr-smt-bgp1
+test tests/java-smt/bgp1-reachability.ref
+get smt-reachability finalNodeRegex="r1", finalIfaceRegex="Loopback.*", fullModel=True
+
 test tests/java-smt/bgp1-forwarding.ref get smt-forwarding dstIps=["42.42.42.0"], fullModel=True
 test tests/java-smt/bgp1-reachability.ref get smt-reachability finalNodeRegex="r1", finalIfaceRegex="Loopback.*", fullModel=True
 test tests/java-smt/bgp1-reachability-negate.ref get smt-reachability finalNodeRegex="r1", finalIfaceRegex="Loopback.*", negate=True

@@ -13,13 +13,20 @@ import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.prunedVxlanTopology
 import static org.batfish.dataplane.rib.AbstractRib.importRib;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import io.opentracing.Scope;
 import io.opentracing.Span;
 import io.opentracing.util.GlobalTracer;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
@@ -36,8 +43,11 @@ import org.batfish.common.plugin.TracerouteEngine;
 import org.batfish.common.topology.IpOwners;
 import org.batfish.common.topology.Layer2Topology;
 import org.batfish.common.topology.TunnelTopology;
+import org.batfish.common.topology.ValueEdge;
 import org.batfish.datamodel.AbstractRoute;
 import org.batfish.datamodel.BgpAdvertisement;
+import org.batfish.datamodel.BgpPeerConfigId;
+import org.batfish.datamodel.BgpSessionProperties;
 import org.batfish.datamodel.Configuration;
 import org.batfish.datamodel.Ip;
 import org.batfish.datamodel.IsisRoute;
@@ -191,7 +201,6 @@ final class IncrementalBdpEngine {
 
       // TODO: switch to topologies and owners from TopologyProvider
       Map<Ip, Map<String, Set<String>>> ipVrfOwners = new IpOwners(configurations).getIpVrfOwners();
-
       // Generate our nodes, keyed by name, sorted for determinism
       SortedMap<String, Node> nodes =
           toImmutableSortedMap(configurations.values(), Configuration::getHostname, Node::new);
@@ -243,6 +252,24 @@ final class IncrementalBdpEngine {
               ipVrfOwners);
       int topologyIterations = 0;
       boolean converged = false;
+      // try to record Topo connection & routingpolicy
+      String root_path = System.getProperty("user.dir")+"/log-serialize/"+nodes.size()+"nodes"+"/";
+      dumpBGPTopo(currentTopologyContext.getBgpTopology(), root_path);
+
+      File file = new File(root_path + "rmap");
+      System.out.println("writing: "+file.getPath());
+      if (!file.getParentFile().exists()){
+        file.getParentFile().mkdirs();
+      }
+      ObjectMapper mapper = new ObjectMapper();
+      //    String json = mapper.writeValueAsString(_logs);
+
+      try {
+        mapper.writeValue(file, configurations);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+
       while (!converged && topologyIterations++ < MAX_TOPOLOGY_ITERATIONS) {
         Span iterSpan =
             GlobalTracer.get().buildSpan("Topology iteration " + topologyIterations).start();
@@ -284,6 +311,9 @@ final class IncrementalBdpEngine {
                 "Could not reach a fixed point topology in %d iterations",
                 MAX_TOPOLOGY_ITERATIONS));
       }
+      //schedule
+//      IbdpSchedule schedule;
+//      schedule = IbdpSchedule.getSchedule(_settings, currentSchedule, nodes, topologyContext);
       //log
       long endTime = System.currentTimeMillis();
       long runTimeTotal = endTime - startTime;
@@ -738,9 +768,12 @@ final class IncrementalBdpEngine {
 
           // compute dependent routes for each allowable set of nodes until we cover all nodes
           int nodeSet = 0;
+//          System.out.println(schedule.);
+          ArrayList<Set<String>> sche = new ArrayList<Set<String>>();
+
           while (schedule.hasNext()) {
             Map<String, Node> iterationNodes = schedule.next();
-
+            sche.add(iterationNodes.keySet());
             System.out.println("iter: "+_numIterations+" subiter: "+logIterNum);
             for (String i: iterationNodes.keySet()){
               System.out.println(iterationNodes.get(i).getConfiguration().getHostname());
@@ -753,6 +786,22 @@ final class IncrementalBdpEngine {
                 iterationNodes, iterationlabel, nodes, networkConfigurations, _numIterations, logIterNum);
             ++nodeSet;
             logIterNum++;
+          }
+
+          //schedule
+          String path = System.getProperty("user.dir")+"/log-serialize/"+nodes.size()+"nodes"+"/";
+          File file = new File(path + "schedule");
+          System.out.println("writing: "+file.getPath());
+          if (!file.getParentFile().exists()){
+            file.getParentFile().mkdirs();
+          }
+          ObjectMapper mapper = new ObjectMapper();
+          //    String json = mapper.writeValueAsString(_logs);
+
+          try {
+            mapper.writeValue(file, sche);
+          } catch (IOException e) {
+            e.printStackTrace();
           }
 
           // Tell each VR that a route computation round has ended.
@@ -996,6 +1045,35 @@ final class IncrementalBdpEngine {
                   importRib(vr._independentRib, vr._ripRib, vr.getName());
                 });
       }
+    }
+  }
+  private void dumpBGPTopo(BgpTopology bgpTopology, String path) {
+    try {
+      String content = "This is the content to write into file";
+      File file = new File(path+"topo");
+      // if file doesnt exists, then create it
+      if (!file.exists()) {
+        file.createNewFile();
+      }
+
+      FileWriter fw = new FileWriter(file.getAbsoluteFile());
+      BufferedWriter bw = new BufferedWriter(fw);
+//      bgpTopology.getGraph().get
+      List<ValueEdge<BgpPeerConfigId, BgpSessionProperties>> edges = bgpTopology.getEdges();
+      int i = 0;
+      for (ValueEdge<BgpPeerConfigId, BgpSessionProperties> edge: edges) {
+        i++;
+        bw.write(edge.getSource().getHostname()+"|"+ edge.getTarget().getHostname());
+        bw.newLine();
+      }
+      System.out.println("*i*:"+i);
+      bw.flush();
+      bw.close();
+
+      System.out.println("Done");
+
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 }

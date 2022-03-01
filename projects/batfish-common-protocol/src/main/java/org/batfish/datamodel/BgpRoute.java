@@ -293,6 +293,7 @@ public abstract class BgpRoute<B extends Builder<B, R>, R extends BgpRoute<B, R>
       "receivedFromRouteReflectorClient";
   static final String PROP_SRC_PROTOCOL = "srcProtocol";
   static final String PROP_WEIGHT = "weight";
+  static final String PROP_MED = "med";
 
   @Nonnull protected final AsPath _asPath;
   @Nonnull protected final Set<Long> _clusterList;
@@ -452,6 +453,9 @@ public abstract class BgpRoute<B extends Builder<B, R>, R extends BgpRoute<B, R>
   public int getWeight() {
     return _weight;
   }
+
+  @JsonProperty(PROP_MED)
+  public long getMed() {return _med;}
 
   @Override
   public abstract B toBuilder();

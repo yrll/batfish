@@ -185,6 +185,7 @@ public final class Configuration implements Serializable {
 
   private Map<String, AsPathAccessList> _asPathAccessLists;
 
+  @JsonIgnore
   private Map<String, AuthenticationKeyChain> _authenticationKeyChains;
 
   private Map<String, CommunityList> _communityLists;
@@ -195,84 +196,86 @@ public final class Configuration implements Serializable {
   private Map<String, CommunitySet> _communitySets;
 
   private final ConfigurationFormat _configurationFormat;
-
+  @JsonIgnore
   private LineAction _defaultCrossZoneAction;
 
   private LineAction _defaultInboundAction;
-
+  @JsonIgnore
   private DeviceModel _deviceModel;
+  @JsonIgnore
   private DeviceType _deviceType;
-
+  @JsonIgnore
   private Set<String> _dnsServers;
-
+  @JsonIgnore
   private String _dnsSourceInterface;
-
+  @JsonIgnore
   private String _domainName;
-
+  @JsonIgnore
   private Map<String, ReferenceBook> _generatedReferenceBooks;
-
+  @JsonIgnore
   private @Nonnull Map<String, IkePhase1Key> _ikePhase1keys;
-
+  @JsonIgnore
   private Map<String, IkePhase1Proposal> _ikePhase1Proposals;
-
+  @JsonIgnore
   private Map<String, IkePhase1Policy> _ikePhase1Policies;
 
   private Map<String, Interface> _interfaces;
-
+  @JsonIgnore
   private Map<String, Ip6AccessList> _ip6AccessLists;
 
   private Map<String, IpAccessList> _ipAccessLists;
-
+  @JsonIgnore
   private Map<String, IpSpace> _ipSpaces;
-
+  @JsonIgnore
   private Map<String, IpSpaceMetadata> _ipSpaceMetadata;
-
+  @JsonIgnore
   private Map<String, IpsecPeerConfig> _ipsecPeerConfigs;
-
+  @JsonIgnore
   private Map<String, IpsecPhase2Policy> _ipsecPhase2Policies;
-
+  @JsonIgnore
   private Map<String, IpsecPhase2Proposal> _ipsecPhase2Proposals;
-
+  @JsonIgnore
   private @Nullable Map<Location, LocationInfo> _locationInfo;
-
+  @JsonIgnore
   private Set<String> _loggingServers;
-
+  @JsonIgnore
   private String _loggingSourceInterface;
-
+  @JsonIgnore
   private Map<String, Mlag> _mlags;
 
   private final String _name;
+
   private @Nullable String _humanName;
 
   /** Normal =&gt; Excluding extended and reserved vlans that should not be modified or deleted. */
+  @JsonIgnore
   private SubRange _normalVlanRange;
-
+  @JsonIgnore
   private Set<String> _ntpServers;
-
+  @JsonIgnore
   private String _ntpSourceInterface;
-
+  @JsonIgnore
   private Map<String, PacketPolicy> _packetPolicies;
-
+  @JsonIgnore
   private Map<String, Route6FilterList> _route6FilterLists;
-
-  private Map<String, RouteFilterList> _routeFilterLists;
+  @JsonIgnore private Map<String, RouteFilterList> _routeFilterLists;
 
   private Map<String, RoutingPolicy> _routingPolicies;
-
+  @JsonIgnore
   private String _snmpSourceInterface;
-
+  @JsonIgnore
   private Set<String> _snmpTrapServers;
-
+  @JsonIgnore
   private Set<String> _tacacsServers;
-
+  @JsonIgnore
   private String _tacacsSourceInterface;
-
+  @JsonIgnore
   private Map<String, TrackMethod> _trackingGroups;
-
+  @JsonIgnore
   private VendorFamily _vendorFamily;
-
+  @JsonIgnore
   private Map<String, Vrf> _vrfs;
-
+  @JsonIgnore
   private Map<String, Zone> _zones;
 
   @JsonCreator
@@ -366,7 +369,8 @@ public final class Configuration implements Serializable {
   }
 
   /** Dictionary of all authentication key chains for this node. */
-  @JsonProperty(PROP_AUTHENTICATION_KEY_CHAINS)
+//  @JsonProperty(PROP_AUTHENTICATION_KEY_CHAINS)
+  @JsonIgnore
   public Map<String, AuthenticationKeyChain> getAuthenticationKeyChains() {
     return _authenticationKeyChains;
   }
@@ -435,7 +439,8 @@ public final class Configuration implements Serializable {
   }
 
   /** Default forwarding action to take for traffic that crosses firewall zones. */
-  @JsonProperty(PROP_DEFAULT_CROSS_ZONE_ACTION)
+//  @JsonProperty(PROP_DEFAULT_CROSS_ZONE_ACTION)
+  @JsonIgnore
   public LineAction getDefaultCrossZoneAction() {
     return _defaultCrossZoneAction;
   }
@@ -451,43 +456,51 @@ public final class Configuration implements Serializable {
     return _vrfs.get(DEFAULT_VRF_NAME);
   }
 
-  @JsonProperty(PROP_DEVICE_MODEL)
+//  @JsonProperty(PROP_DEVICE_MODEL)
+  @JsonIgnore
   public DeviceModel getDeviceModel() {
     return _deviceModel;
   }
 
-  @JsonProperty(PROP_DEVICE_TYPE)
+//  @JsonProperty(PROP_DEVICE_TYPE)
+  @JsonIgnore
   public DeviceType getDeviceType() {
     return _deviceType;
   }
 
+  @JsonIgnore
   public Set<String> getDnsServers() {
     return _dnsServers;
   }
 
-  @JsonProperty(PROP_DNS_SERVERS)
+//  @JsonProperty(PROP_DNS_SERVERS)
+  @JsonIgnore
   private Set<String> getDnsServersJson() {
     return ImmutableSortedSet.copyOf(_dnsServers);
   }
 
-  @JsonProperty(PROP_DNS_SOURCE_INTERFACE)
+//  @JsonProperty(PROP_DNS_SOURCE_INTERFACE)
+  @JsonIgnore
   public String getDnsSourceInterface() {
     return _dnsSourceInterface;
   }
 
   /** Domain name of this node. */
-  @JsonProperty(PROP_DOMAIN_NAME)
+//  @JsonProperty(PROP_DOMAIN_NAME)
+  @JsonIgnore
   public String getDomainName() {
     return _domainName;
   }
 
   /** Dictionary of Reference Books generated from device configurations (e.g., F5 Pools). */
-  @JsonProperty(PROP_GENERATED_REFERENCE_BOOKS)
+//  @JsonProperty(PROP_GENERATED_REFERENCE_BOOKS)
+  @JsonIgnore
   public Map<String, ReferenceBook> getGeneratedReferenceBooks() {
     return _generatedReferenceBooks;
   }
 
-  @JsonProperty(PROP_GENERATED_REFERENCE_BOOKS)
+//  @JsonProperty(PROP_GENERATED_REFERENCE_BOOKS)
+  @JsonIgnore
   public void setGeneratedReferenceBooks(Map<String, ReferenceBook> generatedReferenceBooks) {
     _generatedReferenceBooks = generatedReferenceBooks;
   }
@@ -505,25 +518,29 @@ public final class Configuration implements Serializable {
   }
 
   /** Dictionary of all IKE phase1 keys for this node. */
-  @JsonProperty(PROP_IKE_PHASE1_KEYS)
+//  @JsonProperty(PROP_IKE_PHASE1_KEYS)
+  @JsonIgnore
   public Map<String, IkePhase1Key> getIkePhase1Keys() {
     return _ikePhase1keys;
   }
 
   /** Dictionary of all IKE phase1 policies for this node. */
-  @JsonProperty(PROP_IKE_PHASE1_POLICIES)
+//  @JsonProperty(PROP_IKE_PHASE1_POLICIES)
+  @JsonIgnore
   public Map<String, IkePhase1Policy> getIkePhase1Policies() {
     return _ikePhase1Policies;
   }
 
   /** Dictionary of all IKE phase1 proposals for this node. */
-  @JsonProperty(PROP_IKE_PHASE1_PROPOSALS)
+//  @JsonProperty(PROP_IKE_PHASE1_PROPOSALS)
+  @JsonIgnore
   public Map<String, IkePhase1Proposal> getIkePhase1Proposals() {
     return _ikePhase1Proposals;
   }
 
   /** Dictionary of all interfaces across all VRFs for this node. */
-  @JsonProperty(PROP_INTERFACES)
+//  @JsonProperty(PROP_INTERFACES)
+  @JsonIgnore
   public Map<String, Interface> getAllInterfaces() {
     return _interfaces;
   }
@@ -560,7 +577,8 @@ public final class Configuration implements Serializable {
   }
 
   /** Dictionary of all IPV6 access-lists for this node. */
-  @JsonProperty(PROP_IP6_ACCESS_LISTS)
+//  @JsonProperty(PROP_IP6_ACCESS_LISTS)
+  @JsonIgnore
   public Map<String, Ip6AccessList> getIp6AccessLists() {
     return _ip6AccessLists;
   }
@@ -572,33 +590,39 @@ public final class Configuration implements Serializable {
   }
 
   /** Dictionary of all IPSec peer configs for this node. */
-  @JsonProperty(PROP_IPSEC_PEER_CONFIGS)
+//  @JsonProperty(PROP_IPSEC_PEER_CONFIGS)
+  @JsonIgnore
   public Map<String, IpsecPeerConfig> getIpsecPeerConfigs() {
     return _ipsecPeerConfigs;
   }
 
+  @JsonIgnore
   public Map<String, IpSpace> getIpSpaces() {
     return _ipSpaces;
   }
 
-  @JsonProperty(PROP_IP_SPACES)
+//  @JsonProperty(PROP_IP_SPACES)
+  @JsonIgnore
   private Map<String, IpSpace> getIpSpacesJson() {
     return ImmutableSortedMap.copyOf(_ipSpaces);
   }
 
-  @JsonProperty(PROP_IP_SPACE_METADATA)
+//  @JsonProperty(PROP_IP_SPACE_METADATA)
+  @JsonIgnore
   public Map<String, IpSpaceMetadata> getIpSpaceMetadata() {
     return _ipSpaceMetadata;
   }
 
   /** Dictionary of all IPSec phase 2 policies for this node. */
-  @JsonProperty(PROP_IPSEC_PHASE2_POLICIES)
+//  @JsonProperty(PROP_IPSEC_PHASE2_POLICIES)
+  @JsonIgnore
   public Map<String, IpsecPhase2Policy> getIpsecPhase2Policies() {
     return _ipsecPhase2Policies;
   }
 
   /** Dictionary of all IPSec phase 2 proposals for this node. */
-  @JsonProperty(PROP_IPSEC_PHASE2_PROPOSALS)
+//  @JsonProperty(PROP_IPSEC_PHASE2_PROPOSALS)
+  @JsonIgnore
   public Map<String, IpsecPhase2Proposal> getIpsecPhase2Proposals() {
     return _ipsecPhase2Proposals;
   }
@@ -608,21 +632,25 @@ public final class Configuration implements Serializable {
     return _locationInfo;
   }
 
+  @JsonIgnore
   public Set<String> getLoggingServers() {
     return _loggingServers;
   }
 
-  @JsonProperty(PROP_LOGGING_SERVERS)
+//  @JsonProperty(PROP_LOGGING_SERVERS)
+  @JsonIgnore
   private Set<String> getLoggingServersJson() {
     return ImmutableSortedSet.copyOf(_loggingServers);
   }
 
-  @JsonProperty(PROP_LOGGING_SOURCE_INTERFACE)
+//  @JsonProperty(PROP_LOGGING_SOURCE_INTERFACE)
+  @JsonIgnore
   public String getLoggingSourceInterface() {
     return _loggingSourceInterface;
   }
 
-  @JsonProperty(PROP_MLAGS)
+//  @JsonProperty(PROP_MLAGS)
+  @JsonIgnore
   @Nonnull
   public Map<String, Mlag> getMlags() {
     return _mlags;
@@ -633,28 +661,33 @@ public final class Configuration implements Serializable {
     return _normalVlanRange;
   }
 
+  @JsonIgnore
   public Set<String> getNtpServers() {
     return _ntpServers;
   }
 
-  @JsonProperty(PROP_NTP_SERVERS)
+//  @JsonProperty(PROP_NTP_SERVERS)
+  @JsonIgnore
   private Set<String> getNtpServersJson() {
     return ImmutableSortedSet.copyOf(_ntpServers);
   }
 
-  @JsonProperty(PROP_NTP_SOURCE_INTERFACE)
+//  @JsonProperty(PROP_NTP_SOURCE_INTERFACE)
+  @JsonIgnore
   public String getNtpSourceInterface() {
     return _ntpSourceInterface;
   }
 
   /** Return the defined policies that can be used for policy-based routing */
-  @JsonProperty(PROP_PACKET_POLICIES)
+//  @JsonProperty(PROP_PACKET_POLICIES)
+  @JsonIgnore
   public Map<String, PacketPolicy> getPacketPolicies() {
     return _packetPolicies;
   }
 
   /** Dictionary of all IPV6 route filter lists for this node. */
-  @JsonProperty(PROP_ROUTE6_FILTER_LISTS)
+//  @JsonProperty(PROP_ROUTE6_FILTER_LISTS)
+  @JsonIgnore
   public Map<String, Route6FilterList> getRoute6FilterLists() {
     return _route6FilterLists;
   }
@@ -684,54 +717,62 @@ public final class Configuration implements Serializable {
         .collect(ImmutableSortedSet.toImmutableSortedSet(Comparator.naturalOrder()));
   }
 
-  @JsonProperty(PROP_SNMP_SOURCE_INTERFACE)
+//  @JsonProperty(PROP_SNMP_SOURCE_INTERFACE)
+  @JsonIgnore
   public String getSnmpSourceInterface() {
     return _snmpSourceInterface;
   }
-
+  @JsonIgnore
   public Set<String> getSnmpTrapServers() {
     return _snmpTrapServers;
   }
 
-  @JsonProperty(PROP_SNMP_TRAP_SERVERS)
+//  @JsonProperty(PROP_SNMP_TRAP_SERVERS)
+  @JsonIgnore
   private Set<String> getSnmpTrapServersJson() {
     return ImmutableSortedSet.copyOf(_snmpTrapServers);
   }
-
+  @JsonIgnore
   public Set<String> getTacacsServers() {
     return _tacacsServers;
   }
 
-  @JsonProperty(PROP_TACACS_SERVERS)
+//  @JsonProperty(PROP_TACACS_SERVERS)
+  @JsonIgnore
   private Set<String> getTacacsServersJson() {
     return ImmutableSortedSet.copyOf(_tacacsServers);
   }
 
-  @JsonProperty(PROP_TACACS_SOURCE_INTERFACE)
+//  @JsonProperty(PROP_TACACS_SOURCE_INTERFACE)
+  @JsonIgnore
   public String getTacacsSourceInterface() {
     return _tacacsSourceInterface;
   }
 
   /** Mapping: trackingGroupID -&gt; trackMethod */
-  @JsonProperty(PROP_TRACKING_GROUPS)
+//  @JsonProperty(PROP_TRACKING_GROUPS)
+  @JsonIgnore
   public @Nonnull Map<String, TrackMethod> getTrackingGroups() {
     return _trackingGroups;
   }
 
   /** Object containing vendor-specific information for this node. */
-  @JsonProperty(PROP_VENDOR_FAMILY)
+//  @JsonProperty(PROP_VENDOR_FAMILY)
+  @JsonIgnore
   public VendorFamily getVendorFamily() {
     return _vendorFamily;
   }
 
   /** Dictionary of all VRFs for this node. */
-  @JsonProperty(PROP_VRFS)
+//  @JsonProperty(PROP_VRFS)
+  @JsonIgnore
   public Map<String, Vrf> getVrfs() {
     return _vrfs;
   }
 
   /** Dictionary of all firewall zones for this node. */
-  @JsonProperty(PROP_ZONES)
+//  @JsonProperty(PROP_ZONES)
+  @JsonIgnore
   public Map<String, Zone> getZones() {
     return _zones;
   }
@@ -958,12 +999,12 @@ public final class Configuration implements Serializable {
     _vendorFamily = vendorFamily;
   }
 
-  @JsonProperty(PROP_VRFS)
+//  @JsonProperty(PROP_VRFS)
   public void setVrfs(Map<String, Vrf> vrfs) {
     _vrfs = vrfs;
   }
 
-  @JsonProperty(PROP_ZONES)
+//  @JsonProperty(PROP_ZONES)
   public void setZones(Map<String, Zone> zones) {
     _zones = zones;
   }

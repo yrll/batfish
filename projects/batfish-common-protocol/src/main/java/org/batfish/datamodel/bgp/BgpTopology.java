@@ -54,7 +54,7 @@ public final class BgpTopology {
   }
 
   @JsonProperty(PROP_EDGES)
-  private List<ValueEdge<BgpPeerConfigId, BgpSessionProperties>> getEdges() {
+  public List<ValueEdge<BgpPeerConfigId, BgpSessionProperties>> getEdges() {
     return _graph.edges().stream()
         .map(
             endpointPair ->

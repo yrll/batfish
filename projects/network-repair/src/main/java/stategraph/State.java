@@ -64,6 +64,7 @@ public class State {
   }
 
   public State constructState(BgpLogs logs) {
+    String debugHost = "as1border1";
     for (int i = 0; i < logs.get_logs().size(); i++) {
       BgpLog log = logs.get_logs().get(i);
       if (i == 0) {
@@ -81,9 +82,10 @@ public class State {
         ribs.add(0, initialRibIn);
         continue;
       }
-      new RibIn(logs.get_logs().get(i).get_iter(), this.prefix);
+//      new RibIn(logs.get_logs().get(i).get_iter(), this.prefix);
       RibIn ribIn;
       ribIn = CloneUtils.clone(ribs.get(ribs.size()-1));
+      ribIn.setTime(logs.get_logs().get(i).get_iter());
 //      ribIn = (RibIn) SerializationUtils.clone(ribs.get(ribs.size()-1));
       assert ribIn != null;
       ribIn.mergeRibIn(ribIn.getPrefixCausedRouteMap(log, this.prefix));
