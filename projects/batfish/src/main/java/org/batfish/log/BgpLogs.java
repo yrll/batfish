@@ -120,11 +120,12 @@ public class BgpLogs implements Serializable {
     }
   }
 
-  public void toFileJson(String path) throws JsonProcessingException {
+  public void toFileJson(String path){
 
 
     File file = new File(path + _hostName);
     System.out.println("writing: "+file.getPath());
+
     if (!file.getParentFile().exists()){
       file.getParentFile().mkdirs();
     }
@@ -132,12 +133,13 @@ public class BgpLogs implements Serializable {
     //    String json = mapper.writeValueAsString(_logs);
 
     try {
+
       mapper.writeValue(file, _logs);
     } catch (IOException e) {
       e.printStackTrace();
     }
 
   }
-  public void y(){}
+  public void emptyFunc(){}
 
 }

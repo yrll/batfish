@@ -16,6 +16,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Sets;
 import io.opentracing.Scope;
 import io.opentracing.Span;
@@ -26,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -35,6 +37,7 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.batfish.common.BdpOscillationException;
@@ -45,21 +48,27 @@ import org.batfish.common.topology.Layer2Topology;
 import org.batfish.common.topology.TunnelTopology;
 import org.batfish.common.topology.ValueEdge;
 import org.batfish.datamodel.AbstractRoute;
+import org.batfish.datamodel.BgpActivePeerConfig;
 import org.batfish.datamodel.BgpAdvertisement;
+import org.batfish.datamodel.BgpPeerConfig;
 import org.batfish.datamodel.BgpPeerConfigId;
+import org.batfish.datamodel.BgpProcess;
 import org.batfish.datamodel.BgpSessionProperties;
 import org.batfish.datamodel.Configuration;
 import org.batfish.datamodel.Edge;
 import org.batfish.datamodel.Ip;
 import org.batfish.datamodel.IsisRoute;
 import org.batfish.datamodel.NetworkConfigurations;
+import org.batfish.datamodel.Prefix;
 import org.batfish.datamodel.Topology;
 import org.batfish.datamodel.answers.IncrementalBdpAnswerElement;
 import org.batfish.datamodel.bgp.BgpTopology;
+import org.batfish.datamodel.bgp.Ipv4UnicastAddressFamily;
 import org.batfish.datamodel.eigrp.EigrpTopology;
 import org.batfish.datamodel.eigrp.EigrpTopologyUtils;
 import org.batfish.datamodel.ipsec.IpsecTopology;
 import org.batfish.datamodel.ospf.OspfTopology;
+import org.batfish.datamodel.routing_policy.RoutingPolicy;
 import org.batfish.datamodel.vxlan.VxlanTopology;
 import org.batfish.dataplane.TracerouteEngineImpl;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule;
@@ -256,19 +265,22 @@ final class IncrementalBdpEngine {
       // try to record Topo connection & routingpolicy
       String root_path = System.getProperty("user.dir")+"/log-serialize/"+nodes.size()+"nodes"+"/";
       dumpBGPTopo(currentTopologyContext, root_path);
+      System.out.println("Start to dump Configs");
+      dumpBGPConfiguration(nodes, root_path);
+      System.out.println("Done dump Configs");
 
-      File file = new File(root_path + "rmap");
-      System.out.println("writing: "+file.getPath());
-      if (!file.getParentFile().exists()){
-        file.getParentFile().mkdirs();top      }
-      ObjectMapper mapper = new ObjectMapper();
-      //    String json = mapper.writeValueAsString(_logs);
-
-      try {
-        mapper.writeValue(file, configurations);
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+//      File file = new File(root_path + "rmap");
+//      System.out.println("writing: "+file.getPath());
+//      if (!file.getParentFile().exists()){
+//        file.getParentFile().mkdirs(); }
+//      ObjectMapper mapper = new ObjectMapper();
+//      //    String json = mapper.writeValueAsString(_logs);
+//
+//      try {
+//        mapper.writeValue(file, configurations);
+//      } catch (IOException e) {
+//        e.printStackTrace();
+//      }
 
       while (!converged && topologyIterations++ < MAX_TOPOLOGY_ITERATIONS) {
         Span iterSpan =
@@ -335,11 +347,7 @@ final class IncrementalBdpEngine {
           .flatMap(n -> n.getVirtualRouters().stream()).forEach(vr -> {
         String path1 = System.getProperty("user.dir")+"/log-serialize/"+map.size()+"nodes"+"/";
 //        vr._logs.toFileSerializable(path1);
-        try {
-          vr._logs.toFileJson(path1);
-        } catch (JsonProcessingException e) {
-          e.printStackTrace();
-        }
+        vr._logs.emptyFunc();
       });
       long endTime2 = System.currentTimeMillis();
       System.out.println("total: " + (endTime2 - startTime));
@@ -1064,7 +1072,10 @@ final class IncrementalBdpEngine {
       int i = 0;
       for (Edge edge: topology.getEdges()) {
         i++;
-        bw.write(edge.getTail().getHostname()+","+edge.getTail().getInterface()+"|"+edge.getHead().getHostname()+","+edge.getHead().getInterface());
+        topologyContext.getBgpTopology();
+//        topology.sortedEdges().
+        bw.write(edge.getTail().getHostname()+","+edge.getTail().getInterface()+","+"|"
+            +edge.getHead().getHostname()+","+edge.getHead().getInterface());
 //        bw.write(edge.getSource().getHostname()+","+ edge.getSource().getPeerInterface()+"|"+ edge.getTarget().getHostname()+","+edge.getTarget().getPeerInterface());
         bw.newLine();
       }
@@ -1078,4 +1089,55 @@ final class IncrementalBdpEngine {
       e.printStackTrace();
     }
   }
+
+  private void dumpBGPConfiguration(SortedMap<String, Node> nodes, String path) {
+    try {
+      String content = "This is the content to write into file";
+      File file = new File(path+"rmap");
+      // if file doesnt exists, then create it
+      if (!file.exists()) {
+        file.createNewFile();
+      }
+
+//      FileWriter fw = new FileWriter(file.getAbsoluteFile());
+//      BufferedWriter bw = new BufferedWriter(fw);
+      Map<String, RoutingPolicy> policyMap = new HashMap<>();
+      for (String host: nodes.keySet()) {
+        Node node = nodes.get(host);
+        BgpProcess bgpProcess = node.getConfiguration().getVrfs().get("default").getBgpProcess();
+        //      Map<Prefix, BgpActivePeerConfig> neighbors = bgpProcess.getActiveNeighbors();
+        Iterator<BgpPeerConfig> bgpPeerConfigs = bgpProcess.getAllPeerConfigs().iterator();
+        while (bgpPeerConfigs.hasNext()) {
+          Ipv4UnicastAddressFamily ipv4UnicastAddressFamily = bgpPeerConfigs.next()
+              .getIpv4UnicastAddressFamily();
+          assert ipv4UnicastAddressFamily != null;
+          String im = ipv4UnicastAddressFamily.getImportPolicy();
+          String ex = ipv4UnicastAddressFamily.getExportPolicy();
+
+//          assert im != null;
+          if (im!=null) {
+            if (!Pattern.matches("(.*)default(.*)", im)) {
+              RoutingPolicy importPolicy = node.getConfiguration().getRoutingPolicies().get(im);
+              System.out.println(importPolicy.getName());
+              policyMap.put(im, importPolicy);
+            }
+          }
+          if (ex!=null) {
+            if (!Pattern.matches("(.*)default(.*)", ex)) {
+              RoutingPolicy exportPolicy = node.getConfiguration().getRoutingPolicies().get(ex);
+              System.out.println(exportPolicy.getName());
+              policyMap.put(ex, exportPolicy);
+            }
+          }
+
+        }
+
+      }
+      ObjectMapper mapper = new ObjectMapper();
+      mapper.writeValue(file, policyMap);
+    }catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+//  private Map<String,>
 }

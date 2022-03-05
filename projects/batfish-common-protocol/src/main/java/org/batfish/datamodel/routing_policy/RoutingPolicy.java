@@ -40,7 +40,9 @@ public class RoutingPolicy implements Serializable {
   public static final class Builder {
 
     private @Nullable String _name;
+    @JsonIgnore
     private @Nullable Supplier<String> _nameGenerator;
+    @JsonIgnore
     private Configuration _owner;
     private ImmutableList.Builder<Statement> _statements;
 
@@ -85,8 +87,8 @@ public class RoutingPolicy implements Serializable {
   private static final String PROP_STATEMENTS = "statements";
 
   @Nonnull private final String _name;
-  @Nullable private Configuration _owner;
-  @Nullable private transient Set<String> _sources;
+  @JsonIgnore @Nullable private Configuration _owner;
+  @JsonIgnore @Nullable private transient Set<String> _sources;
   @Nonnull private List<Statement> _statements;
 
   @JsonCreator

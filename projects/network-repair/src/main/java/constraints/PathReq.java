@@ -1,6 +1,7 @@
 package constraints;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class PathReq {
 
@@ -28,4 +29,5 @@ public class PathReq {
       return false;
     return this.paths.equals(pathReq.paths);
   }
+
 }
