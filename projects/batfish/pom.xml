@@ -523,5 +523,11 @@
             <artifactId>mockito-inline</artifactId>
             <scope>test</scope>
         </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.batfish</groupId>-->
+<!--        <artifactId>network-repair</artifactId>-->
+<!--        <version>0.36.0</version>-->
+<!--        <scope>compile</scope>-->
+<!--      </dependency>-->
     </dependencies>
 </project>

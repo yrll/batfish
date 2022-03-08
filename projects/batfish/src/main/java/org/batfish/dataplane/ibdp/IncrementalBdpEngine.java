@@ -265,9 +265,9 @@ final class IncrementalBdpEngine {
       // try to record Topo connection & routingpolicy
       String root_path = System.getProperty("user.dir")+"/log-serialize/"+nodes.size()+"nodes"+"/";
       dumpBGPTopo(currentTopologyContext, root_path);
-      System.out.println("Start to dump Configs");
-      dumpBGPConfiguration(nodes, root_path);
-      System.out.println("Done dump Configs");
+//      System.out.println("Start to dump Configs");
+//      dumpBGPConfiguration(nodes, root_path);
+//      System.out.println("Done dump Configs");
 
 //      File file = new File(root_path + "rmap");
 //      System.out.println("writing: "+file.getPath());
@@ -1135,6 +1135,7 @@ final class IncrementalBdpEngine {
       }
       ObjectMapper mapper = new ObjectMapper();
       mapper.writeValue(file, policyMap);
+//      transferBGPRmap();
     }catch (IOException e) {
       e.printStackTrace();
     }

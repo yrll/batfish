@@ -29,6 +29,7 @@ import static org.batfish.specifier.LocationInfoUtils.computeLocationInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Throwables;
 import com.google.common.cache.Cache;
@@ -207,6 +208,7 @@ import org.batfish.job.ParseEnvironmentBgpTableJob;
 import org.batfish.job.ParseResult;
 import org.batfish.job.ParseVendorConfigurationJob;
 import org.batfish.job.ParseVendorConfigurationResult;
+import org.batfish.log.RouteMapMap;
 import org.batfish.question.ReachabilityParameters;
 import org.batfish.question.ResolvedReachabilityParameters;
 import org.batfish.question.SrcNattedConstraint;
@@ -216,6 +218,8 @@ import org.batfish.question.differentialreachability.DifferentialReachabilityRes
 import org.batfish.question.multipath.MultipathConsistencyParameters;
 import org.batfish.referencelibrary.ReferenceLibrary;
 import org.batfish.representation.aws.AwsConfiguration;
+import org.batfish.representation.cisco.CiscoConfiguration;
+import org.batfish.representation.cisco.RouteMap;
 import org.batfish.representation.host.HostConfiguration;
 import org.batfish.representation.iptables.IptablesVendorConfiguration;
 import org.batfish.role.InferRoles;
@@ -2625,7 +2629,7 @@ public class Batfish extends PluginConsumer implements IBatfish {
     boolean found = false;
     _logger.info("\n*** READING DEVICE CONFIGURATION FILES ***\n");
 
-    List<ParseVendorConfigurationResult> parseResults;
+    List<ParseVendorConfigurationResult> parseResults = null;
     Span parseNetworkConfigsSpan = GlobalTracer.get().buildSpan("Parse network configs").start();
     try (Scope scope = GlobalTracer.get().scopeManager().activate(parseNetworkConfigsSpan)) {
       assert scope != null; // avoid unused warning
@@ -2656,7 +2660,7 @@ public class Batfish extends PluginConsumer implements IBatfish {
       AtomicInteger batch = newBatch("Parse network configs", jobs.size());
       LOGGER.info("Parsing {} configuration files", jobs.size());
       parseResults =
-          jobs.parallelStream()
+          jobs.stream()
               .map(
                   j -> {
                     ParseVendorConfigurationResult result =
@@ -2671,6 +2675,9 @@ public class Batfish extends PluginConsumer implements IBatfish {
               .collect(ImmutableList.toImmutableList());
     } finally {
       parseNetworkConfigsSpan.finish();
+      assert parseResults != null;
+      String root_path = System.getProperty("user.dir")+"/log-serialize/"+parseResults.size()+"nodes"+"/";
+      dumpRmapToFile(parseResults, root_path);
     }
 
     if (_settings.getHaltOnParseError()
@@ -2721,6 +2728,42 @@ public class Batfish extends PluginConsumer implements IBatfish {
       serializeNetworkConfigsSpan.finish();
     }
     return found;
+  }
+
+  private void dumpRmapToFile(List<ParseVendorConfigurationResult> parseResults, String path) {
+    Map<String, RouteMapMap> rmaps = new HashMap<>();
+
+    for (ParseVendorConfigurationResult result: parseResults){
+      if (result.get_format() == ConfigurationFormat.CISCO_IOS) {
+        VendorConfiguration configuration = result.getVendorConfiguration();
+        if (configuration instanceof CiscoConfiguration) {
+          for (String rmap_name: ((CiscoConfiguration) configuration).getRouteMaps().keySet()){
+            RouteMap routeMap = ((CiscoConfiguration) configuration).getRouteMaps().get(rmap_name);
+            RouteMapMap routeMapMap = new RouteMapMap(routeMap, ((CiscoConfiguration) configuration));
+            rmaps.put(rmap_name, routeMapMap);
+          }
+        }
+      }
+    }
+
+    System.out.println("");
+
+    try {
+
+      File file = new File(path+"rmap");
+      // if file doesnt exists, then create it
+      if (!file.exists()) {
+        file.createNewFile();
+      }
+
+      //      FileWriter fw = new FileWriter(file.getAbsoluteFile());
+      //      BufferedWriter bw = new BufferedWriter(fw);
+      ObjectMapper mapper = new ObjectMapper();
+      mapper.writeValue(file, rmaps);
+      //      transferBGPRmap();
+    }catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   /** Returns {@code true} iff at least one network configuration was found. */

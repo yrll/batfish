@@ -97,6 +97,14 @@ public abstract class VendorConfiguration implements Serializable {
     return _unrecognized;
   }
 
+  @Nonnull public SortedMap<String, SortedMap<String, DefinedStructureInfo>> get_structureDefinitions() {
+    return _structureDefinitions;
+  }
+
+  @Nonnull public SortedMap<StructureType, SortedMap<String, SortedMap<StructureUsage, SortedMultiset<Integer>>>> get_structureReferences() {
+    return _structureReferences;
+  }
+
   @JsonIgnore
   public final Warnings getWarnings() {
     return _w;

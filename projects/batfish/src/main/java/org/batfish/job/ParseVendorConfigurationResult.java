@@ -169,6 +169,10 @@ public class ParseVendorConfigurationResult
     return _history;
   }
 
+  @Nonnull public ConfigurationFormat get_format() {
+    return _format;
+  }
+
   private String getModifiedName(String baseName, String filename) {
     String modifiedName = getModifiedNameBase(baseName, filename);
     int index = 0;
