@@ -347,7 +347,7 @@ final class IncrementalBdpEngine {
           .flatMap(n -> n.getVirtualRouters().stream()).forEach(vr -> {
         String path1 = System.getProperty("user.dir")+"/log-serialize/"+map.size()+"nodes"+"/";
 //        vr._logs.toFileSerializable(path1);
-        vr._logs.emptyFunc();
+        vr._logs.toFileJson(path1);
       });
       long endTime2 = System.currentTimeMillis();
       System.out.println("total: " + (endTime2 - startTime));
@@ -1074,7 +1074,7 @@ final class IncrementalBdpEngine {
         i++;
         topologyContext.getBgpTopology();
 //        topology.sortedEdges().
-        bw.write(edge.getTail().getHostname()+","+edge.getTail().getInterface()+","+"|"
+        bw.write(edge.getTail().getHostname()+","+edge.getTail().getInterface()+"|"
             +edge.getHead().getHostname()+","+edge.getHead().getInterface());
 //        bw.write(edge.getSource().getHostname()+","+ edge.getSource().getPeerInterface()+"|"+ edge.getTarget().getHostname()+","+edge.getTarget().getPeerInterface());
         bw.newLine();
