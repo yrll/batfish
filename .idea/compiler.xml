@@ -30,15 +30,15 @@
         </processorPath>
         <module name="symbolic" />
         <module name="build-tools" />
-        <module name="bdd" />
         <module name="coordinator" />
+        <module name="bdd" />
         <module name="question" />
         <module name="batfish-common-protocol" />
-        <module name="batfish" />
         <module name="batfish-client" />
+        <module name="batfish" />
         <module name="allinone" />
-        <module name="minesweeper" />
         <module name="network-repair" />
+        <module name="minesweeper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -83,6 +83,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import net.sf.javabdd.BDD;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.apache.commons.configuration2.ImmutableConfiguration;
 import org.apache.commons.lang3.SerializationUtils;
@@ -305,7 +306,7 @@ public class Batfish extends PluginConsumer implements IBatfish {
                   VendorConfigurationFormatDetector.BATFISH_FLATTENED_PALO_ALTO_HEADER);
           ParseTreeWalker walker = new BatfishParseTreeWalker(parser);
           try {
-            walker.walk(flattener, tree);
+            walker.walk((ParseTreeListener) flattener, tree);
           } catch (BatfishParseException e) {
             warnings.setErrorDetails(e.getErrorDetails());
             throw new BatfishException(
@@ -323,7 +324,7 @@ public class Batfish extends PluginConsumer implements IBatfish {
                   VendorConfigurationFormatDetector.BATFISH_FLATTENED_JUNIPER_HEADER, input);
           ParseTreeWalker walker = new BatfishParseTreeWalker(parser);
           try {
-            walker.walk(flattener, tree);
+            walker.walk((ParseTreeListener) flattener, tree);
           } catch (BatfishParseException e) {
             warnings.setErrorDetails(e.getErrorDetails());
             throw new BatfishException(
@@ -340,7 +341,7 @@ public class Batfish extends PluginConsumer implements IBatfish {
               new VyosFlattener(VendorConfigurationFormatDetector.BATFISH_FLATTENED_VYOS_HEADER);
           ParseTreeWalker walker = new BatfishParseTreeWalker(parser);
           try {
-            walker.walk(flattener, tree);
+            walker.walk((ParseTreeListener) flattener, tree);
           } catch (BatfishParseException e) {
             warnings.setErrorDetails(e.getErrorDetails());
             throw new BatfishException(
@@ -2731,6 +2732,12 @@ public class Batfish extends PluginConsumer implements IBatfish {
   }
 
   private void dumpRmapToFile(List<ParseVendorConfigurationResult> parseResults, String path) {
+    // make sure the path is directory
+    File f = new File(path);
+    if (!f.exists() || !f.isDirectory()) {
+      f.mkdir();
+    }
+
     Map<String, RouteMapMap> rmaps = new HashMap<>();
 
     for (ParseVendorConfigurationResult result: parseResults){
