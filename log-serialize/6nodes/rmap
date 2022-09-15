@@ -1,0 +1,1 @@
+{"RMap_Minsk_from_Gomel":{"lines":{"10":{"name":"RMap_Minsk_from_Gomel","access":"PERMIT","lineno":10,"matches":{},"actions":[{"localPreference":{"class":"org.batfish.datamodel.routing_policy.expr.LiteralLong","value":120}}]}},"line_range":{"definitionLines":"52-53","numReferrers":0},"name":"RMap_Minsk_from_Gomel","community_lists":{},"as_path_lists":{},"prefix_lists":{}}}

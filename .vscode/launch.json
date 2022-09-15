@@ -1,0 +1,112 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch allinone",
+            "request": "launch",
+            "mainClass": "org.batfish.allinone.Main",
+            "projectName": "allinone",
+            "args": [
+                "-coordinatorargs",
+                "-templatedirs questions",
+                "-loglevel", "info",
+                "-runmode", "interactive"
+            ]
+            
+        },
+        {
+            "type": "java",
+            "name": "Launch Test",
+            "request": "launch",
+            "mainClass": "org.batfish.log.Test",
+            "projectName": "batfish"
+        },
+        {
+            "type": "java",
+            "name": "Launch deserialize",
+            "request": "launch",
+            "mainClass": "org.batfish.log.deserialize",
+            "projectName": "batfish"
+        },
+        {
+            "type": "java",
+            "name": "Launch deserializeBgpLogs",
+            "request": "launch",
+            "mainClass": "org.batfish.log.deserializeBgpLogs",
+            "projectName": "batfish"
+        },
+        {
+            "type": "java",
+            "name": "Launch Flatten",
+            "request": "launch",
+            "mainClass": "org.batfish.main.Flatten",
+            "projectName": "batfish"
+        },
+        {
+            "type": "java",
+            "name": "Launch Preprocess",
+            "request": "launch",
+            "mainClass": "org.batfish.main.Preprocess",
+            "projectName": "batfish"
+        },
+        {
+            "type": "java",
+            "name": "Launch CallbackTests",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.bdd.CallbackTests",
+            "projectName": "bdd"
+        },
+        {
+            "type": "java",
+            "name": "Launch IteratorTests",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.bdd.IteratorTests",
+            "projectName": "bdd"
+        },
+        {
+            "type": "java",
+            "name": "Launch NQueensTest",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.highlevel.NQueensTest",
+            "projectName": "bdd"
+        },
+        {
+            "type": "java",
+            "name": "Launch R1",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.regression.R1",
+            "projectName": "bdd"
+        },
+        {
+            "type": "java",
+            "name": "Launch R2",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.regression.R2",
+            "projectName": "bdd"
+        },
+        {
+            "type": "java",
+            "name": "Launch R3",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.regression.R3",
+            "projectName": "bdd"
+        },
+        {
+            "type": "java",
+            "name": "Launch R4",
+            "request": "launch",
+            "mainClass": "net.sf.javabdd.regression.R4",
+            "projectName": "bdd"
+        }
+    ]
+}

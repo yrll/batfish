@@ -135,6 +135,7 @@
   </profiles>
 
   <build>
+    <defaultGoal>compile</defaultGoal>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -1139,6 +1140,6 @@
     <module>minesweeper</module>
     <module>question</module>
     <module>symbolic</module>
-    <module>network-repair</module>
+<!--    <module>network-repair</module>-->
   </modules>
 </project>

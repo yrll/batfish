@@ -1,0 +1,16 @@
+gomel,FastEthernet0/0|minsk,FastEthernet0/0
+gomel,FastEthernet0/1|mogilev,FastEthernet0/0
+gomel,FastEthernet1/0|peergomel_0,FastEthernet0/0
+gomel,FastEthernet1/1|vitebsk,FastEthernet0/0
+grodno,FastEthernet0/0|minsk,FastEthernet0/1
+grodno,FastEthernet0/1|vitebsk,FastEthernet0/1
+minsk,FastEthernet0/0|gomel,FastEthernet0/0
+minsk,FastEthernet0/1|grodno,FastEthernet0/0
+minsk,FastEthernet1/0|mogilev,FastEthernet0/1
+mogilev,FastEthernet0/0|gomel,FastEthernet0/1
+mogilev,FastEthernet0/1|minsk,FastEthernet1/0
+mogilev,FastEthernet1/0|vitebsk,FastEthernet1/0
+peergomel_0,FastEthernet0/0|gomel,FastEthernet1/0
+vitebsk,FastEthernet0/0|gomel,FastEthernet1/1
+vitebsk,FastEthernet0/1|grodno,FastEthernet0/1
+vitebsk,FastEthernet1/0|mogilev,FastEthernet1/0

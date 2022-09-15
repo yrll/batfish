@@ -1,1 +1,0 @@
-{"foo":{"lines":{"10":{"name":"foo","access":"PERMIT","lineno":10,"matches":{"org.batfish.representation.cisco.RouteMapMatchAsPathAccessListLine":{"listNames":["1"]}},"actions":[]}},"line_range":{"definitionLines":"12-13","numReferrers":0},"name":"foo","community_lists":{},"as_path_lists":{"1":{"lines":[{}],"name":"1"}},"prefix_lists":{}}}

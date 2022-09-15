@@ -14,6 +14,7 @@
     <packaging>jar</packaging>
 
     <build>
+        <defaultGoal>compile</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>

@@ -37,7 +37,6 @@
         <module name="batfish-client" />
         <module name="batfish" />
         <module name="allinone" />
-        <module name="network-repair" />
         <module name="minesweeper" />
       </profile>
     </annotationProcessing>

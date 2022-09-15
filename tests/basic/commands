@@ -5,7 +5,8 @@ add-batfish-option haltonparseerror
 add-batfish-option verboseparse
 
 # some ref tests using example network
-test -compareall tests/basic/init.ref init-snapshot networks/example/live basic-example
+init-snapshot networks/example/live basic-example
+test -compareall tests/basic/init.ref 
 test tests/basic/parse-status.ref get fileparsestatus
 test -compareall tests/basic/genDp.ref generate-dataplane
 test -json tests/basic/topology.ref get-pojo-topology
