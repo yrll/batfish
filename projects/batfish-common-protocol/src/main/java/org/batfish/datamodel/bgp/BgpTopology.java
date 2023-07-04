@@ -5,18 +5,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
-import com.google.common.graph.ImmutableValueGraph;
+//import com.google.common.graph.*;
+import com.google.common.graph.EndpointPair;
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
-
-import java.util.*;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.google.common.graph.ImmutableValueGraph;
 import org.batfish.common.topology.ValueEdge;
 import org.batfish.datamodel.BgpPeerConfigId;
 import org.batfish.datamodel.BgpSessionProperties;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.Comparator;
 
 /** A topology representing all BGP peerings. */
 @ParametersAreNonnullByDefault
@@ -90,10 +96,10 @@ public final class BgpTopology {
     return _graph.hashCode();
   }
 
-  /*
-  get all peers of the input peer
+  /**
+   * get all peers of the input peer
    */
-  public Set<BgpPeerConfigId> getPeer(BgpPeerConfigId curPeer) {
+  public Set<BgpPeerConfigId> getPeers(BgpPeerConfigId curPeer) {
     Set<BgpPeerConfigId> peers = new HashSet<>();
     _graph.edges().forEach(edge->{
       if (edge.source().equals(curPeer)) {
@@ -103,6 +109,75 @@ public final class BgpTopology {
       }
     });
     return peers;
+  }
+
+  public BgpPeerConfigId getTheFirstPeerConfigId(String node) {
+    for (BgpPeerConfigId bgpPeerConfigId: _graph.nodes()) {
+      if (bgpPeerConfigId.getHostname().equals(node)) {
+        return bgpPeerConfigId;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * get all peers of the input peer
+   */
+  public Set<String> getPeers(String node) {
+    Set<BgpPeerConfigId> peers = getPeers(getTheFirstPeerConfigId(node));
+    Set<String> peersName = new HashSet<>();
+    peers.forEach(p->peersName.add(p.getHostname()));
+    return peersName;
+  }
+
+  /**
+   * get the AS number of "thisNode" (towards a specific peerNode)
+   * */
+  public long getAsNumber(String thisNode, String peerNode) {
+    for (EndpointPair<BgpPeerConfigId> edge: _graph.edges()) {
+      if (edge.target().getHostname().equals(peerNode) && edge.source().getHostname().equals(thisNode)) {
+        return  _graph.edgeValue(edge).get().getLocalAs();
+      }
+    }
+    return Long.parseLong(null);
+  }
+
+  /**
+   * get the bgpPeerConfigIp of "thisNode" (towards a specific peerNode)
+   * */
+  public BgpPeerConfigId getBgpPeerConfigId(String thisNode, String peerNode) {
+    for (EndpointPair<BgpPeerConfigId> edge: _graph.edges()) {
+      if (edge.target().getHostname().equals(peerNode) && edge.source().getHostname().equals(thisNode)) {
+        return  edge.source();
+      }
+    }
+    return null;
+  }
+
+  /**
+   * get the sessionProp of a pair of nodes
+   */
+  public BgpSessionProperties getBgpSessionProp(String thisNode, String peerNode) {
+    for (EndpointPair<BgpPeerConfigId> edge: _graph.edges()) {
+      if (edge.target().getHostname().equals(peerNode) && edge.source().getHostname().equals(thisNode)) {
+        return  _graph.edgeValue(edge).get();
+      }
+    }
+    return null;
+  }
+
+  /**
+   * get peers toward specif session type
+   */
+  public Set<String> getBgpPeers(String node, Set<String> otherNodes, boolean isEbgp) {
+    Set<String> resNodes = new HashSet<>();
+    for (String otherNode: otherNodes) {
+      BgpSessionProperties session = getBgpSessionProp(node, otherNode);
+      if (session!=null && session.isEbgp()==isEbgp) {
+        resNodes.add(otherNode);
+      }
+    }
+    return resNodes;
   }
 
   /** Directional, reversible BGP edge pointing to two {@link BgpPeerConfigId}. */

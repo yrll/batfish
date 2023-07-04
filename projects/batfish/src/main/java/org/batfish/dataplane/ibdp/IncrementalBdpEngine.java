@@ -76,6 +76,7 @@ import org.batfish.dataplane.ibdp.TrackRouteUtils.GetRoutesForPrefix;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule.Schedule;
 import org.batfish.dataplane.rib.RibDelta;
+import org.batfish.diagnosis.Generator;
 import org.batfish.version.BatfishVersion;
 
 /** Computes the entire dataplane by executing a fixed-point computation. */
@@ -277,6 +278,7 @@ final class IncrementalBdpEngine {
      * - Third, let the EGP routes converge
      * - Finally, compute FIBs, return answer
      */
+
     IncrementalBdpAnswerElement answerElement = new IncrementalBdpAnswerElement();
     // TODO: eventually, IGP needs to be part of fixed-point below, because tunnels.
     computeIgpDataPlane(nodes, vrs, initialTopologyContext, answerElement);
@@ -392,6 +394,7 @@ final class IncrementalBdpEngine {
           String.format(
               "Could not reach a fixed point topology in %d iterations", MAX_TOPOLOGY_ITERATIONS));
     }
+
 
     // Generate the answers from the computation, compute final FIBs
     // TODO: Properly finalize topologies, IpOwners, etc.

@@ -567,4 +567,17 @@ public final class BgpSessionProperties {
           .toString();
     }
   }
+
+  /**
+   * get the Ip of another node against the input node
+   */
+  public Ip getAnotherIp(BgpPeerConfigId node) {
+    if (node.getRemotePeerPrefix().containsIp(_remoteIp)) {
+      return _localIp;
+    }
+    if (node.getRemotePeerPrefix().containsIp(_localIp)) {
+      return _remoteIp;
+    }
+    return null;
+  }
 }
