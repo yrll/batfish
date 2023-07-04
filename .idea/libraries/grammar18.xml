@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="grammar18">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libgrammar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libcheck_point_gateway_base.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

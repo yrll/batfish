@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="fortios5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/fortios/libfortios.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/fortios/libfortios-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/fortios/libfortios-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

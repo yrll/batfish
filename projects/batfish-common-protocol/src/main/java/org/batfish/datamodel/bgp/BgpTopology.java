@@ -9,10 +9,8 @@ import com.google.common.graph.ImmutableValueGraph;
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+
+import java.util.*;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -90,6 +88,21 @@ public final class BgpTopology {
   @Override
   public int hashCode() {
     return _graph.hashCode();
+  }
+
+  /*
+  get all peers of the input peer
+   */
+  public Set<BgpPeerConfigId> getPeer(BgpPeerConfigId curPeer) {
+    Set<BgpPeerConfigId> peers = new HashSet<>();
+    _graph.edges().forEach(edge->{
+      if (edge.source().equals(curPeer)) {
+        peers.add(edge.target());
+      } else if (edge.target().equals(curPeer)) {
+        peers.add(edge.source());
+      }
+    });
+    return peers;
   }
 
   /** Directional, reversible BGP edge pointing to two {@link BgpPeerConfigId}. */

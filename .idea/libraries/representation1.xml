@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="representation1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/a10/representation/librepresentation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/a10/representation/librepresentation-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/a10/representation/librepresentation-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

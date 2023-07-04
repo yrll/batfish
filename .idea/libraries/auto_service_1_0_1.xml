@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="auto-service-1.0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/com_google_auto_service_auto_service_1_0_1/file/v1/https/repo1.maven.org/maven2/com/google/auto/service/auto-service/1.0.1/auto-service-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

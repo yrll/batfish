@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="frr2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/frr/libfrr-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/frr/libfrr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/frr/libfrr-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

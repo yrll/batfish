@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cumulus_interfaces3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_interfaces/libcumulus_interfaces-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_interfaces/libcumulus_interfaces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_interfaces/libcumulus_interfaces-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

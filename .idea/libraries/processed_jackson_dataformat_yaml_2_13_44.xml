@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_jackson-dataformat-yaml-2.13.44">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.13.4/processed_jackson-dataformat-yaml-2.13.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

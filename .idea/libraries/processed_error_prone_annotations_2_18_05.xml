@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_error_prone_annotations-2.18.05">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.18.0/processed_error_prone_annotations-2.18.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

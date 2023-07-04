@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="4.7.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/processed_antlr4-runtime-4.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/header_antlr4-runtime-4.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

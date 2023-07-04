@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_snakeyaml-1.334">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/1.33/processed_snakeyaml-1.33.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

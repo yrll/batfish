@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="4.42">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.4/header_commons-collections4-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.4/processed_commons-collections4-4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

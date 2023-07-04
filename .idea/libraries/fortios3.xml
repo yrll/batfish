@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="fortios3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/fortios/libfortios-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/fortios/libfortios-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/fortios/libfortios.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

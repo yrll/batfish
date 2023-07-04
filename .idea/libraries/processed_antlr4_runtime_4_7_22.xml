@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_antlr4-runtime-4.7.22">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/org/antlr/antlr4-runtime/4.7.2/processed_antlr4-runtime-4.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

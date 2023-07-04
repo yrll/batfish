@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="minesweeper1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/minesweeper/libminesweeper-gensrc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/minesweeper/libminesweeper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/minesweeper/libminesweeper-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="grammar5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/sonic/grammar/libgrammar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/sonic/grammar/libgrammar-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/sonic/grammar/libgrammar-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_commons-collections-3.2.22">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/commons-collections/commons-collections/3.2.2/processed_commons-collections-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

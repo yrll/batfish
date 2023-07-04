@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cumulus_nclu3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/cumulus_nclu/libcumulus_nclu-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/cumulus_nclu/libcumulus_nclu.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/cumulus_nclu/libcumulus_nclu-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

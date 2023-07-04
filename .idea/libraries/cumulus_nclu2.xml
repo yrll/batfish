@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cumulus_nclu2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_nclu/libcumulus_nclu.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_nclu/libcumulus_nclu-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_nclu/libcumulus_nclu-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

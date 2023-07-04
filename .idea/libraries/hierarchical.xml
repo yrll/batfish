@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="hierarchical">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/hierarchical/libhierarchical.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/hierarchical/libhierarchical-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/hierarchical/libhierarchical-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

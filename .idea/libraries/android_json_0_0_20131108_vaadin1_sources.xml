@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="android-json-0.0.20131108.vaadin1-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/com_vaadin_external_google_android_json_jar_sources_0_0_20131108_vaadin1/file/v1/https/repo1.maven.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

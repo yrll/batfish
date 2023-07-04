@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libbdd1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/projects/bdd/libbdd.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="1.22">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/maven/v1/https/repo1.maven.org/maven2/com/google/auto/auto-common/1.2/processed_auto-common-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/maven/v1/https/repo1.maven.org/maven2/com/google/auto/auto-common/1.2/auto-common-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

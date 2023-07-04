@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_javassist-3.29.0-GA1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/org/javassist/javassist/3.29.0-GA/processed_javassist-3.29.0-GA.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

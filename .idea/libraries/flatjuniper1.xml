@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="flatjuniper1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/flatjuniper/libflatjuniper-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/flatjuniper/libflatjuniper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/flatjuniper/libflatjuniper-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

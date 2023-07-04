@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="3.29.0-GA">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/javassist/javassist/3.29.0-GA/processed_javassist-3.29.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/javassist/javassist/3.29.0-GA/javassist-3.29.0-GA.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

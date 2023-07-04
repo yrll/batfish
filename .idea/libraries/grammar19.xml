@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="grammar19">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/a10/grammar/libgrammar-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/a10/grammar/liba10_base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/a10/grammar/libgrammar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/a10/grammar/libgrammar-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/a10/grammar/liba10_base-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/vendor/a10/grammar/liba10_base-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

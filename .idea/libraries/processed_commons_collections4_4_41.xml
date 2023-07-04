@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_commons-collections4-4.41">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.4/processed_commons-collections4-4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

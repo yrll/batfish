@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libcumulus_ports4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/grammar/cumulus_ports/libcumulus_ports.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parboiled2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_management/parsing/parboiled/libparboiled.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_management/parsing/parboiled/libparboiled-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_management/parsing/parboiled/libparboiled-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

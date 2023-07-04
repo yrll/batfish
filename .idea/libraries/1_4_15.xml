@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="1.4.15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled-core/1.4.1/processed_parboiled-core-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled-core/1.4.1/parboiled-core-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled-core/1.4.1/header_parboiled-core-1.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

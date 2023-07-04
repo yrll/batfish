@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jettison-1.5.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_codehaus_jettison_jettison_1_5_3/file/v1/https/repo1.maven.org/maven2/org/codehaus/jettison/jettison/1.5.3/jettison-1.5.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

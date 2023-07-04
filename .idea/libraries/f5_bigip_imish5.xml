@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="f5_bigip_imish5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/f5_bigip_imish/libf5_bigip_imish-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/f5_bigip_imish/libf5_bigip_imish.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/f5_bigip_imish/libf5_bigip_imish-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

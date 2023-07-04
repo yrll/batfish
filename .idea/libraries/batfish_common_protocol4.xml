@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="batfish-common-protocol4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libspecifier_common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libspecifier_common-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libcommon_lib-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libcommon_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libcommon_lib-class.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libspecifier_common-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libcommon_lib-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libparser_common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libparser_common-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libcommon_lib-gensrc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish-common-protocol/libparser_common-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

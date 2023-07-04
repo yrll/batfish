@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jersey-media-json-jackson-2.39-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_glassfish_jersey_media_jersey_media_json_jackson_jar_sources_2_39/file/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/media/jersey-media-json-jackson/2.39/jersey-media-json-jackson-2.39-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

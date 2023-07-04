@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parsing27">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_ports/parsing/libcumulus_ports_base-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_ports/parsing/libcumulus_ports_base-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_ports/parsing/libcumulus_ports_base.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

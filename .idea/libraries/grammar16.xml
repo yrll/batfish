@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="grammar16">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libcheck_point_gateway_base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libgrammar-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libcheck_point_gateway_base-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libcheck_point_gateway_base-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libgrammar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/vendor/check_point_gateway/grammar/libgrammar-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.5.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/commons_cli_commons_cli_1_5_0/file/v1/https/repo1.maven.org/maven2/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jersey-server-2.39-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_glassfish_jersey_core_jersey_server_jar_sources_2_39/file/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/core/jersey-server/2.39/jersey-server-2.39-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

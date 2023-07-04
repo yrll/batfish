@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_android-json-0.0.20131108.vaadin14">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/processed_android-json-0.0.20131108.vaadin1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

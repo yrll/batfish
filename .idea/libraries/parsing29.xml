@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parsing29">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_nxos/parsing/libcisco_nxos_base-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_nxos/parsing/libcisco_nxos_base-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_nxos/parsing/libcisco_nxos_base.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="allinone1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/allinone/allinone_main.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/allinone/liballinone.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

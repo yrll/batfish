@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="juniper">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/juniper/libjuniper-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/juniper/libjuniper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/juniper/libjuniper-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

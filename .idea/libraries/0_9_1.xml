@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="0.9.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/com/carrotsearch/hppc/0.9.1/header_hppc-0.9.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/com/carrotsearch/hppc/0.9.1/hppc-0.9.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/com/carrotsearch/hppc/0.9.1/processed_hppc-0.9.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

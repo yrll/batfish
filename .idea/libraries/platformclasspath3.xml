@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="platformclasspath3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/bazel_tools/tools/jdk/platformclasspath.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

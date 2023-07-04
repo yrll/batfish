@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libclient">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/projects/client/libclient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

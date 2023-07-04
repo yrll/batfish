@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="69.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/com/ibm/icu/icu4j/69.1/processed_icu4j-69.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/com/ibm/icu/icu4j/69.1/header_icu4j-69.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/com/ibm/icu/icu4j/69.1/icu4j-69.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

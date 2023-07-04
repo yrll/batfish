@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jersey-entity-filtering-2.39">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_glassfish_jersey_ext_jersey_entity_filtering_2_39/file/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/ext/jersey-entity-filtering/2.39/jersey-entity-filtering-2.39.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

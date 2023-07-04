@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cisco">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/cisco/libcisco.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/cisco/libcisco-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/representation/cisco/libcisco-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

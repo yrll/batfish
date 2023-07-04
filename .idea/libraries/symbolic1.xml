@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="symbolic1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/symbolic/src/main/java/org/batfish/symbolic/libcore-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/symbolic/src/main/java/org/batfish/symbolic/libcore-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/symbolic/src/main/java/org/batfish/symbolic/libcore.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cumulus_ports5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_ports/libcumulus_ports-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_ports/libcumulus_ports-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_ports/libcumulus_ports.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

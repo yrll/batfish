@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_jersey-common-2.394">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/core/jersey-common/2.39/processed_jersey-common-2.39.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

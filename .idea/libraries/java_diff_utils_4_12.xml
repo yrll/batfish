@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="java-diff-utils-4.12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/io_github_java_diff_utils_java_diff_utils_4_12/file/v1/https/repo1.maven.org/maven2/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

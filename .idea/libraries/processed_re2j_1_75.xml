@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_re2j-1.75">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/com/google/re2j/re2j/1.7/processed_re2j-1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

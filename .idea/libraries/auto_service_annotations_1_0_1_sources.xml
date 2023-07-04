@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="auto-service-annotations-1.0.1-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/com_google_auto_service_auto_service_annotations_jar_sources_1_0_1/file/v1/https/repo1.maven.org/maven2/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

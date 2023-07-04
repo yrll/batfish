@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="asm-analysis-9.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_ow2_asm_asm_analysis_9_2/file/v1/https/repo1.maven.org/maven2/org/ow2/asm/asm-analysis/9.2/asm-analysis-9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

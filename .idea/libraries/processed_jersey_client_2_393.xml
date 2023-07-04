@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_jersey-client-2.393">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/core/jersey-client/2.39/processed_jersey-client-2.39.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

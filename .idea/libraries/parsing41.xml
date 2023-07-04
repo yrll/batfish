@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parsing41">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/palo_alto_nested/parsing/libpalo_alto_nested_base-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/palo_alto_nested/parsing/libpalo_alto_nested_base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/palo_alto_nested/parsing/libpalo_alto_nested_base-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

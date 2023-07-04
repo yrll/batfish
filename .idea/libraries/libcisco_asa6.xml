@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libcisco_asa6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/grammar/cisco_asa/libcisco_asa.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="1.331">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/1.33/processed_snakeyaml-1.33.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/1.33/snakeyaml-1.33.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/1.33/header_snakeyaml-1.33.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

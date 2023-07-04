@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="version1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/coordinator/src/main/java/org/batfish/coordinator/version/libversion-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/coordinator/src/main/java/org/batfish/coordinator/version/libversion-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/coordinator/src/main/java/org/batfish/coordinator/version/libversion.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/coordinator/src/main/java/org/batfish/coordinator/version/libversion-gensrc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

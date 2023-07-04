@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-text-1.10.0-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_apache_commons_commons_text_jar_sources_1_10_0/file/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

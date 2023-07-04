@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_hk2-locator-2.6.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/hk2/hk2-locator/2.6.1/processed_hk2-locator-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

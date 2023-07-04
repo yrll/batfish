@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="1.8.02">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/processed_lz4-java-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/header_lz4-java-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

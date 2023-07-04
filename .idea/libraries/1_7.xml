@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="1.7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/com/google/re2j/re2j/1.7/header_re2j-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/com/google/re2j/re2j/1.7/processed_re2j-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/com/google/re2j/re2j/1.7/re2j-1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

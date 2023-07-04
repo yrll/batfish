@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_jakarta.validation-api-2.0.22">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/jakarta/validation/jakarta.validation-api/2.0.2/processed_jakarta.validation-api-2.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

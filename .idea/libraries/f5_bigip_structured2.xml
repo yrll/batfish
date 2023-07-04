@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="f5_bigip_structured2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/f5_bigip_structured/libf5_bigip_structured-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/f5_bigip_structured/libf5_bigip_structured-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/f5_bigip_structured/libf5_bigip_structured.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

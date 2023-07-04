@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/rules_jvm_external/private/tools/java/rules/jvm/external/jar/AddJarManifestEntry.runfiles/remotejdk11_linux/lib/jrt-fs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/rules_jvm_external/private/tools/java/rules/jvm/external/jar/AddJarManifestEntry.runfiles/remotejdk11_linux/lib/src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

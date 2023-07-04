@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libcumulus_concatenated">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/antlr4/org/batfish/grammar/cumulus_concatenated/libcumulus_concatenated.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

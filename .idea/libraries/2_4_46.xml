@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="2.4.46">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/grizzly/grizzly-framework/2.4.4/header_grizzly-framework-2.4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/grizzly/grizzly-framework/2.4.4/processed_grizzly-framework-2.4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/grizzly/grizzly-framework/2.4.4/grizzly-framework-2.4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

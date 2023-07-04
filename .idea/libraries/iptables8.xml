@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="iptables8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/iptables/libiptables.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/iptables/libiptables-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/iptables/libiptables-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

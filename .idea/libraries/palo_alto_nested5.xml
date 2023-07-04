@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="palo_alto_nested5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/palo_alto_nested/libpalo_alto_nested-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/palo_alto_nested/libpalo_alto_nested.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/java/org/batfish/grammar/palo_alto_nested/libpalo_alto_nested-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

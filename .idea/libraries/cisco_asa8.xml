@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cisco_asa8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cisco_asa/libcisco_asa-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cisco_asa/libcisco_asa.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/batfish/src/main/antlr4/org/batfish/grammar/cisco_asa/libcisco_asa-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

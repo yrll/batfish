@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="aopalliance-repackaged-2.6.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_glassfish_hk2_external_aopalliance_repackaged_2_6_1/file/v1/https/repo1.maven.org/maven2/org/glassfish/hk2/external/aopalliance-repackaged/2.6.1/aopalliance-repackaged-2.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

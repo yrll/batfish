@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="2.3917">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/ext/jersey-entity-filtering/2.39/header_jersey-entity-filtering-2.39.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/ext/jersey-entity-filtering/2.39/jersey-entity-filtering-2.39.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/glassfish/jersey/ext/jersey-entity-filtering/2.39/processed_jersey-entity-filtering-2.39.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

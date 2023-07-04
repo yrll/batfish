@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jsonassert-1.5.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_skyscreamer_jsonassert_1_5_1/file/v1/https/repo1.maven.org/maven2/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

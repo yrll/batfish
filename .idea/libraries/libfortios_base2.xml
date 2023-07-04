@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libfortios_base2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/grammar/fortios/parsing/libfortios_base.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

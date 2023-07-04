@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jackson-annotations-2.14.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/com_fasterxml_jackson_core_jackson_annotations_2_14_1/file/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_jakarta.activation-api-1.2.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/jakarta/activation/jakarta.activation-api/1.2.2/processed_jakarta.activation-api-1.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="state">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/symbolic/src/main/java/org/batfish/symbolic/state/libstate-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/symbolic/src/main/java/org/batfish/symbolic/state/libstate.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/symbolic/src/main/java/org/batfish/symbolic/state/libstate-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

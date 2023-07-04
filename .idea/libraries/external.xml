@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="external">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/rules_jvm_external/private/tools/java/rules/jvm/external/libbyte-streams-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/rules_jvm_external/private/tools/java/rules/jvm/external/libbyte-streams.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/rules_jvm_external/private/tools/java/rules/jvm/external/libbyte-streams-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

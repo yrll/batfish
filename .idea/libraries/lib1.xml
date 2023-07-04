@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/remotejdk11_linux/lib/jrt-fs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/remotejdk11_linux/lib/src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

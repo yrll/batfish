@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libf5_bigip_imish2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/grammar/f5_bigip_imish/libf5_bigip_imish.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

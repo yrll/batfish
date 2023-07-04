@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ios2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/routing_table/ios/libios-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/routing_table/ios/libios-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/antlr4/org/batfish/grammar/routing_table/ios/libios.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

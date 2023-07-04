@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_log4j-core-2.20.05">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.20.0/processed_log4j-core-2.20.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="state2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/symbolic/src/main/java/org/batfish/symbolic/state/libstate-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/symbolic/src/main/java/org/batfish/symbolic/state/libstate-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/symbolic/src/main/java/org/batfish/symbolic/state/libstate.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

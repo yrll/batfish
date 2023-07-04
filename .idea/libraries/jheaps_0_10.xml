@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jheaps-0.10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_jheaps_jheaps_0_10/file/v1/https/repo1.maven.org/maven2/org/jheaps/jheaps/0.10/jheaps-0.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

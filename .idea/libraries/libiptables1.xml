@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libiptables1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/representation/iptables/libiptables.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

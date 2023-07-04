@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libcumulus_nclu7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/representation/cumulus_nclu/libcumulus_nclu.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

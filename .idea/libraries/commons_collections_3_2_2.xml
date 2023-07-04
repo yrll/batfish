@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-collections-3.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/commons_collections_commons_collections_3_2_2/file/v1/https/repo1.maven.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

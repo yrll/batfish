@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_asm-util-9.25">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/org/ow2/asm/asm-util/9.2/processed_asm-util-9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

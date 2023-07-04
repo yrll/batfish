@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="auto-common-1.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/com_google_auto_auto_common_1_2/file/v1/https/repo1.maven.org/maven2/com/google/auto/auto-common/1.2/auto-common-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

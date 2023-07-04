@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_jsr305-3.0.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/processed_jsr305-3.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

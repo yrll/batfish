@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_automaton-1.12-45">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/dk/brics/automaton/1.12-4/processed_automaton-1.12-4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

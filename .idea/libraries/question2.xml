@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="question2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/question/libquestion-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/question/libquestion.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/question/libquestion-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/question/libquestion-gensrc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

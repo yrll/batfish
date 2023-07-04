@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parsing47">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_asa/parsing/libcisco_asa_base_parser-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_asa/parsing/libcisco_asa_base_parser.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_asa/parsing/libcisco_asa_base_parser-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="0.10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/jheaps/jheaps/0.10/header_jheaps-0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/jheaps/jheaps/0.10/processed_jheaps-0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/external/maven/v1/https/repo1.maven.org/maven2/org/jheaps/jheaps/0.10/jheaps-0.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

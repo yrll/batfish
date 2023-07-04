@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_lz4-java-1.8.05">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/external/maven/v1/https/repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/processed_lz4-java-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

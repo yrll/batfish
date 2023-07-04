@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parsing43">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_xr/parsing/libcisco_xr_base_parser-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_xr/parsing/libcisco_xr_base_parser.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cisco_xr/parsing/libcisco_xr_base_parser-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

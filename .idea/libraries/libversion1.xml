@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libversion1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/coordinator/src/main/java/org/batfish/coordinator/version/libversion.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

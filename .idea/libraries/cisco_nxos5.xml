@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cisco_nxos5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/representation/cisco_nxos/libcisco_nxos.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/representation/cisco_nxos/libcisco_nxos-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/representation/cisco_nxos/libcisco_nxos-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

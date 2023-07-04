@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="parsing30">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_nclu/parsing/libcumulus_nclu_base_parser-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_nclu/parsing/libcumulus_nclu_base_parser.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/batfish/src/main/java/org/batfish/grammar/cumulus_nclu/parsing/libcumulus_nclu_base_parser-hjar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

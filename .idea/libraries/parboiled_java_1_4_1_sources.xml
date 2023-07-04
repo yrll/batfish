@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="parboiled-java-1.4.1-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-batfish/external/org_parboiled_parboiled_java_jar_sources_1_4_1/file/v1/https/repo1.maven.org/maven2/org/parboiled/parboiled-java/1.4.1/parboiled-java-1.4.1-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

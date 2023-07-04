@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="client">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/client/libclient-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/client/libclient-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/client/libclient-class.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/client/libclient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

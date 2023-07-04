@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libvyos2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-out/k8-fastbuild/bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/antlr4/org/batfish/grammar/vyos/libvyos.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

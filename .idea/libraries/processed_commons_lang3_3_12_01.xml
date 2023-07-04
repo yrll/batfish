@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="processed_commons-lang3-3.12.01">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/maven/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/processed_commons-lang3-3.12.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

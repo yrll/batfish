@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libapplication_definitions">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/allinone/allinone_main.runfiles/batfish/projects/batfish/src/main/java/org/batfish/representation/palo_alto/application_definitions/libapplication_definitions.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

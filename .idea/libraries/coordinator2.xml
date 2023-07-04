@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="coordinator2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/coordinator/libcoordinator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/coordinator/libcoordinator-class.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/coordinator/libcoordinator-hjar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/projects/coordinator/libcoordinator-native-header.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
