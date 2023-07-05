@@ -171,12 +171,15 @@ public final class BgpTopology {
    */
   public Set<String> getBgpPeers(String node, Set<String> otherNodes, boolean isEbgp) {
     Set<String> resNodes = new HashSet<>();
-    for (String otherNode: otherNodes) {
-      BgpSessionProperties session = getBgpSessionProp(node, otherNode);
-      if (session!=null && session.isEbgp()==isEbgp) {
-        resNodes.add(otherNode);
-      }
+    if (otherNodes!=null) {
+      for (String otherNode: otherNodes) {
+            BgpSessionProperties session = getBgpSessionProp(node, otherNode);
+            if (session!=null && session.isEbgp()==isEbgp) {
+              resNodes.add(otherNode);
+            }
+          }
     }
+
     return resNodes;
   }
 

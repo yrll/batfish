@@ -332,7 +332,6 @@ public class BgpForwardingTree {
     public Map<String, BgpCondition> genBgpConditions(Set<String> reqSrcNodes, BgpTopology bgpTopology) {
         Set<String> nodesSetCondition = _bestRouteFromMap.keySet();
 
-        nodesSetCondition = new HashSet<>();
         for (String node : reqSrcNodes) {
             List<String> path = getBestRouteFromPath(node);
             nodesSetCondition.addAll(path);

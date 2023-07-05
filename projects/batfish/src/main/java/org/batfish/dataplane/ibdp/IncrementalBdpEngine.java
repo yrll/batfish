@@ -18,8 +18,10 @@ import static org.batfish.dataplane.rib.AbstractRib.importRib;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -76,7 +78,9 @@ import org.batfish.dataplane.ibdp.TrackRouteUtils.GetRoutesForPrefix;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule.Schedule;
 import org.batfish.dataplane.rib.RibDelta;
+//import org.batfish.diagnosis.Generator;
 import org.batfish.diagnosis.Generator;
+import org.batfish.diagnosis.conditions.BgpCondition;
 import org.batfish.version.BatfishVersion;
 
 /** Computes the entire dataplane by executing a fixed-point computation. */
@@ -331,6 +335,7 @@ final class IncrementalBdpEngine {
             currentTrackMethodEvaluatorProvider);
     int topologyIterations = 0;
     boolean converged = false;
+    TopologyContext finalTopologyContext;
     while (!converged && topologyIterations++ < MAX_TOPOLOGY_ITERATIONS) {
       LOGGER.info("Starting topology iteration {}", topologyIterations);
       boolean isOscillating =
@@ -395,6 +400,12 @@ final class IncrementalBdpEngine {
               "Could not reach a fixed point topology in %d iterations", MAX_TOPOLOGY_ITERATIONS));
     }
 
+    //
+    Generator generator = new Generator("d", "10.0.1.0/24", null, currentTopologyContext);
+    Set<String> reqNodes = new HashSet<>();
+    reqNodes.add("s");
+    generator.genBgpTree(reqNodes, null);
+    Map<String, BgpCondition> conditionMap = generator.getBgpTree().genBgpConditions(reqNodes, generator.getBgpTopology());
 
     // Generate the answers from the computation, compute final FIBs
     // TODO: Properly finalize topologies, IpOwners, etc.
