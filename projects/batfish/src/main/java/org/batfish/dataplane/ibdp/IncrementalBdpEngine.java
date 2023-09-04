@@ -1,39 +1,8 @@
 package org.batfish.dataplane.ibdp;
 
-import static org.batfish.common.topology.TopologyUtil.computeLayer2Topology;
-import static org.batfish.common.topology.TopologyUtil.computeLayer3Topology;
-import static org.batfish.common.topology.TopologyUtil.computeRawLayer3Topology;
-import static org.batfish.common.topology.TopologyUtil.pruneUnreachableTunnelEdges;
-import static org.batfish.common.util.CollectionUtil.toImmutableSortedMap;
-import static org.batfish.common.util.IpsecUtil.retainReachableIpsecEdges;
-import static org.batfish.common.util.IpsecUtil.toEdgeSet;
-import static org.batfish.common.util.StreamUtil.toListInRandomOrder;
-import static org.batfish.datamodel.bgp.BgpTopologyUtils.initBgpTopology;
-import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.computeNextVxlanTopologyModuloReachability;
-import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.prunedVxlanTopology;
-import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.vxlanTopologyToLayer3Edges;
-import static org.batfish.dataplane.ibdp.TrackReachabilityUtils.evaluateTrackReachability;
-import static org.batfish.dataplane.rib.AbstractRib.importRib;
-
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.TreeSet;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Function;
-import java.util.stream.Stream;
-import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.batfish.common.BdpOscillationException;
@@ -78,10 +47,37 @@ import org.batfish.dataplane.ibdp.TrackRouteUtils.GetRoutesForPrefix;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule;
 import org.batfish.dataplane.ibdp.schedule.IbdpSchedule.Schedule;
 import org.batfish.dataplane.rib.RibDelta;
-//import org.batfish.diagnosis.Generator;
-import org.batfish.diagnosis.Generator;
-import org.batfish.diagnosis.conditions.BgpCondition;
 import org.batfish.version.BatfishVersion;
+
+import javax.annotation.Nonnull;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
+import java.util.stream.Stream;
+
+import static org.batfish.common.topology.TopologyUtil.computeLayer2Topology;
+import static org.batfish.common.topology.TopologyUtil.computeLayer3Topology;
+import static org.batfish.common.topology.TopologyUtil.computeRawLayer3Topology;
+import static org.batfish.common.topology.TopologyUtil.pruneUnreachableTunnelEdges;
+import static org.batfish.common.util.CollectionUtil.toImmutableSortedMap;
+import static org.batfish.common.util.IpsecUtil.retainReachableIpsecEdges;
+import static org.batfish.common.util.IpsecUtil.toEdgeSet;
+import static org.batfish.common.util.StreamUtil.toListInRandomOrder;
+import static org.batfish.datamodel.bgp.BgpTopologyUtils.initBgpTopology;
+import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.computeNextVxlanTopologyModuloReachability;
+import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.prunedVxlanTopology;
+import static org.batfish.datamodel.vxlan.VxlanTopologyUtils.vxlanTopologyToLayer3Edges;
+import static org.batfish.dataplane.ibdp.TrackReachabilityUtils.evaluateTrackReachability;
+import static org.batfish.dataplane.rib.AbstractRib.importRib;
 
 /** Computes the entire dataplane by executing a fixed-point computation. */
 final class IncrementalBdpEngine {
@@ -399,13 +395,6 @@ final class IncrementalBdpEngine {
           String.format(
               "Could not reach a fixed point topology in %d iterations", MAX_TOPOLOGY_ITERATIONS));
     }
-
-    //
-    Generator generator = new Generator("d", "10.0.1.0/24", null, currentTopologyContext);
-    Set<String> reqNodes = new HashSet<>();
-    reqNodes.add("s");
-    generator.genBgpTree(reqNodes, null);
-    Map<String, BgpCondition> conditionMap = generator.getBgpTree().genBgpConditions(reqNodes, generator.getBgpTopology());
 
     // Generate the answers from the computation, compute final FIBs
     // TODO: Properly finalize topologies, IpOwners, etc.

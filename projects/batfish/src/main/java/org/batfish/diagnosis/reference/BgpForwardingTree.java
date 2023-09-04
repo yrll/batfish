@@ -1,9 +1,8 @@
-package org.batfish.diagnosis;
+package org.batfish.diagnosis.reference;
 
-import org.batfish.datamodel.BgpPeerConfigId;
-import org.batfish.datamodel.BgpSessionProperties;
-import org.batfish.datamodel.Prefix;
+import org.batfish.datamodel.*;
 import org.batfish.datamodel.bgp.BgpTopology;
+import org.batfish.diagnosis.common.DiagnosedFlow;
 import org.batfish.diagnosis.conditions.BgpCondition;
 import org.batfish.diagnosis.conditions.SelectionRoute;
 import org.batfish.diagnosis.util.KeyWord;
@@ -25,11 +24,7 @@ public class BgpForwardingTree {
 
     BgpTopology _bgpTopology;
 
-    private Set<String> _startDevs;
-
-    // Destination (origin) router and the prefix in it.
-    private Prefix _dstPrefix;
-    private String _dstDevName;
+    DiagnosedFlow _flow;
 
 
     // The next-hop map is for each router to forward traffic
@@ -43,8 +38,11 @@ public class BgpForwardingTree {
     private Set<String> _unreachableNodes;
     private Set<String> _reachableNodes;
     // 一开始接收的可达路由的集合, 最优的, 最长前缀匹配的
-//    private Map<String, BgpRoute> _bestRouteMap;
+    private Map<String, Bgpv4Route> _bestRouteMap;
 
+    public Bgpv4Route getBestBgpRoute(String node) {
+        return _bestRouteMap.get(node);
+    }
 
 
     public enum PathType{
@@ -65,25 +63,22 @@ public class BgpForwardingTree {
         return null;
     }
 
-    public BgpForwardingTree(String dstDev, Prefix prefix, Set<String> startDevs, BgpTopology bgpTopology, Set<String> nodes) {
-        _dstDevName = dstDev;
-        _dstPrefix = prefix;
-
+    public BgpForwardingTree(DiagnosedFlow flow, BgpTopology bgpTopology) {
+        _flow = flow;
         _nextHopForwardingMap = new HashMap<>();
         _bestRouteFromMap = new HashMap<>();
-
-        _startDevs = startDevs;
-
+        _bestRouteMap = new HashMap<>();
+        
         _bgpTopology = bgpTopology;
 
         // 初始时unreachNodes是除了dst外所有节点
         _unreachableNodes = new HashSet<>();
         _reachableNodes = new HashSet<>();
-        nodes.forEach(node->{
-            _unreachableNodes.add(node);
-        });
-        _unreachableNodes.remove(dstDev);
-        _reachableNodes.add(dstDev);
+
+    }
+
+    public void initialize(DataPlane dataPlane) {
+        // TODO: 根据 data plane 生成当前 nextHopForwardingMap, bestRouteFromMap, ...
     }
 
     public Set<String> getUnreachableNodes() {
@@ -94,9 +89,6 @@ public class BgpForwardingTree {
         return _bestRouteFromMap;
     }
 
-    public String getDstDevName() {
-        return _dstDevName;
-    }
 
     public void addNextHopForwardingEdge(String head, String tail) {
         _nextHopForwardingMap.put(head, tail);
@@ -112,13 +104,6 @@ public class BgpForwardingTree {
         _bestRouteFromMap.put(head, tail);
     }
 
-    // RECONSTRUCTION: genNewTree
-//    public void copyBestRouteFromMap(Map<String, String> map) {
-//        assert _bestRouteFromMap.size()<1;
-//        for (String node : map.keySet()) {
-//            _bestRouteFromMap.put(node, map.get(node));
-//        }
-//    }
 
 
     public Set<String> getReachableNodes() {
@@ -147,12 +132,12 @@ public class BgpForwardingTree {
         path.add(startDevName);
         while(true) {
             String thisNode = path.get(path.size()-1);
-            if (thisNode.equals(_dstDevName) || !_bestRouteFromMap.containsKey(thisNode) || thisNode.equals(_dstDevName)) {
+            if (thisNode.equals(_flow.getDstNode()) || !_bestRouteFromMap.containsKey(thisNode) || thisNode.equals(_flow.getDstNode())) {
                 break;
             }
             String nextNode = _bestRouteFromMap.get(thisNode);
 
-            if (!thisNode.equals(_dstDevName) && path.contains(nextNode)) {
+            if (!thisNode.equals(_flow.getDstNode()) && path.contains(nextNode)) {
                 System.out.println(path);
                 System.out.println("LOOP!!!!!!!!!!!");
                 return null;
@@ -161,7 +146,7 @@ public class BgpForwardingTree {
 
         }
         // must be a valid path
-        if (path.get(path.size()-1).equals(_dstDevName)) {
+        if (path.get(path.size()-1).equals(_flow.getDstNode())) {
             return path;
         } else {
             return null;
@@ -350,12 +335,12 @@ public class BgpForwardingTree {
         String vpnName = KeyWord.PUBLIC_VPN_NAME;
         for (String node : nodesSetCondition) {
             // dst节点单独设置
-            if (node.equals(_dstDevName)) {
+            if (node.equals(_flow.getDstNode())) {
                 continue;
             }
 
             // prop-neighbor和acpt-neighbor还有peer的list可以去除不在nodesSetCondition里的节点
-            conds.put(node, new BgpCondition.Builder(_dstPrefix.toString())
+            conds.put(node, new BgpCondition.Builder(_flow.getCfgDstPrefixString())
                     // vpn名称只在有vpnName的节点上设置，其余设置public
                     .vpnName(vpnName)
                     .propNeighbors(propNeighborMap.get(node))
@@ -363,7 +348,7 @@ public class BgpForwardingTree {
                     .ibgpPeers(getIntersectantSet(bgpTopology.getBgpPeers(node, propNeighborMap.get(node), false), nodesSetCondition))
                     .ebgpPeers(getIntersectantSet(bgpTopology.getBgpPeers(node, propNeighborMap.get(node), true), nodesSetCondition))
                     .rrClient(clientsMap.get(node))
-                    .selectionRoute(new SelectionRoute.Builder(_dstPrefix.toString())
+                    .selectionRoute(new SelectionRoute.Builder(_flow.getCfgDstPrefixString())
                             .vpnName(vpnName)
                             .nextHop(getNextHopList(node, bgpTopology))
                             .asPath(getAsPath(node, bgpTopology))
@@ -372,8 +357,8 @@ public class BgpForwardingTree {
                     .build());
         }
         // 添加终点（原发）节点的redistribute约束
-        String node = _dstDevName;
-        conds.put(node, new BgpCondition.Builder(_dstPrefix.toString())
+        String node = _flow.getDstNode();
+        conds.put(node, new BgpCondition.Builder(_flow.getCfgDstPrefixString())
                 .vpnName(vpnName)
                 .propNeighbors(propNeighborMap.get(node))
                 .acptNeighbors(acptNeighborMap.get(node))

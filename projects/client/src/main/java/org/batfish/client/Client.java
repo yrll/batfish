@@ -772,7 +772,7 @@ public class Client extends AbstractClient implements IClient {
                   .terminal(TerminalBuilder.builder().build())
                   .completer(new ArgumentCompleter(new CommandCompleter(), new NullCompleter()))
                   .build();
-          Path historyPath = Paths.get(System.getenv(ENV_HOME), HISTORY_FILE);
+          Path historyPath = Paths.get(System.getenv("TEMP"), HISTORY_FILE);
           historyPath.toFile().createNewFile();
           _reader.setVariable(LineReader.HISTORY_FILE, historyPath.toAbsolutePath().toString());
           _reader.unsetOpt(Option.INSERT_TAB); // supports completion with nothing entered
@@ -1449,6 +1449,8 @@ public class Client extends AbstractClient implements IClient {
   static Multimap<String, String> loadQuestionsFromDir(
       String questionsPathStr, @Nullable BatfishLogger logger) {
     Path questionsPath = Paths.get(questionsPathStr);
+    File testFile = new File(questionsPathStr);
+    boolean flag = testFile.exists();
     SortedSet<Path> jsonQuestionFiles = new TreeSet<>();
     try {
       Files.walkFileTree(
@@ -1459,7 +1461,8 @@ public class Client extends AbstractClient implements IClient {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
               String filename = file.getFileName().toString();
-              if (filename.endsWith(".json")) {
+              // YRL: 最新版没有json，只有ref
+              if (filename.endsWith(".json") || filename.endsWith(".ref")) {
                 jsonQuestionFiles.add(file);
               }
               return FileVisitResult.CONTINUE;
@@ -1709,7 +1712,7 @@ public class Client extends AbstractClient implements IClient {
         return showNetwork(options, parameters);
       case SHOW_SNAPSHOT:
         return showSnapshot(options, parameters);
-      case TEST:
+      case TEST: // test命令后面是问题类型，可能会迭代查询 调用当前processCommand函数；
         return test(options, parameters);
       case VALIDATE_TEMPLATE:
         return validateTemplate(words, outWriter, options, parameters);

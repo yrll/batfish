@@ -1,27 +1,8 @@
 package org.batfish.question.specifiers;
 
-import static org.batfish.datamodel.answers.Schema.FLOW;
-import static org.batfish.datamodel.matchers.FlowMatchers.hasDstIp;
-import static org.batfish.datamodel.matchers.FlowMatchers.hasIngressNode;
-import static org.batfish.datamodel.matchers.FlowMatchers.hasSrcIp;
-import static org.batfish.datamodel.matchers.RowMatchers.hasColumn;
-import static org.batfish.datamodel.matchers.TableAnswerElementMatchers.hasRows;
-import static org.batfish.question.traceroute.TracerouteAnswerer.COL_FLOW;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.anyOf;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.assertThat;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
-import java.io.IOException;
-import java.util.List;
-import java.util.Set;
 import org.batfish.datamodel.Flow;
 import org.batfish.datamodel.FlowDisposition;
 import org.batfish.datamodel.Ip;
@@ -40,6 +21,17 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Set;
+
+import static org.batfish.datamodel.answers.Schema.FLOW;
+import static org.batfish.datamodel.matchers.FlowMatchers.*;
+import static org.batfish.datamodel.matchers.TableAnswerElementMatchers.hasRows;
+import static org.batfish.question.traceroute.TracerouteAnswerer.COL_FLOW;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 /** End-to-end tests of {@link SpecifiersReachabilityQuestion}. */
 public class SpecifiersReachabilityTest {

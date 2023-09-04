@@ -148,19 +148,8 @@ import org.batfish.datamodel.Prefix;
 import org.batfish.datamodel.SwitchportMode;
 import org.batfish.datamodel.Topology;
 import org.batfish.datamodel.acl.AclLineMatchExpr;
-import org.batfish.datamodel.answers.Answer;
-import org.batfish.datamodel.answers.AnswerElement;
-import org.batfish.datamodel.answers.AnswerMetadataUtil;
-import org.batfish.datamodel.answers.AnswerStatus;
-import org.batfish.datamodel.answers.ConvertConfigurationAnswerElement;
-import org.batfish.datamodel.answers.ConvertStatus;
-import org.batfish.datamodel.answers.DataPlaneAnswerElement;
-import org.batfish.datamodel.answers.InitInfoAnswerElement;
-import org.batfish.datamodel.answers.InitStepAnswerElement;
-import org.batfish.datamodel.answers.ParseAnswerElement;
-import org.batfish.datamodel.answers.ParseEnvironmentBgpTablesAnswerElement;
-import org.batfish.datamodel.answers.ParseStatus;
-import org.batfish.datamodel.answers.ParseVendorConfigurationAnswerElement;
+import org.batfish.datamodel.answers.*;
+import org.batfish.datamodel.bgp.BgpTopology;
 import org.batfish.datamodel.collections.BgpAdvertisementsByVrf;
 import org.batfish.datamodel.collections.NodeInterfacePair;
 import org.batfish.datamodel.eigrp.EigrpMetricValues;
@@ -175,6 +164,9 @@ import org.batfish.datamodel.questions.Question;
 import org.batfish.datamodel.vxlan.Layer2Vni;
 import org.batfish.datamodel.vxlan.Layer3Vni;
 import org.batfish.dataplane.TracerouteEngineImpl;
+import org.batfish.dataplane.ibdp.SymbolicDataPlanePlugin;
+import org.batfish.diagnosis.conditions.BgpCondition;
+import org.batfish.diagnosis.reference.BgpGenerator;
 import org.batfish.grammar.BatfishCombinedParser;
 import org.batfish.grammar.BatfishParseException;
 import org.batfish.grammar.BatfishParseTreeWalker;
@@ -723,6 +715,7 @@ public class Batfish extends PluginConsumer implements IBatfish {
     LOGGER.info("Finished data plane computation successfully");
     return answerElement;
   }
+
 
   /* Write the dataplane to disk and cache, and write the answer element to disk.
    */
@@ -2075,6 +2068,21 @@ public class Batfish extends PluginConsumer implements IBatfish {
       throw new CleanBatfishException("No task performed! Run with -help flag to see usage\n");
     }
     return answer;
+  }
+
+  /**
+   * 在run之后调用：发现answer不满足（为空时），调用repair【每次一条流】
+   * 1）先根据当前dataplane生成 forwardingTree
+   * 2）调用computeDataPlaneWithSymbolicValue【需要重新写一个DataPlanePlugin...】
+   * @param snapshot
+   */
+  public boolean repair(NetworkSnapshot snapshot, Answer lastAnswer) {
+    // 这个dataplanePlugin好像只要implement那个接口，都会自动生成
+    DataPlanePlugin dataPlanePlugin = _dataPlanePlugins.get(SymbolicDataPlanePlugin.PLUGIN_NAME);
+    assert dataPlanePlugin instanceof SymbolicDataPlanePlugin;
+    ((SymbolicDataPlanePlugin) dataPlanePlugin).setAnswer(lastAnswer);
+    dataPlanePlugin.computeDataPlane(snapshot);
+    return true;
   }
 
   /** Initialize topologies, commit {raw, raw pojo, pruned} layer-3 topologies to storage. */

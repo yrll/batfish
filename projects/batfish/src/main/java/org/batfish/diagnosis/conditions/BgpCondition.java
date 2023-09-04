@@ -10,10 +10,6 @@ import java.util.Set;
  */
 public class BgpCondition {
 
-
-    @JsonProperty("vpnName")
-    private String _vpnName;
-
     @JsonProperty("ipPrefix")
     private String _networkString;
 
@@ -48,7 +44,6 @@ public class BgpCondition {
         this._rrClients = builder._rrClients;
         this._ibgpPeers = builder._ibgpPeers;
         this._ebgpPeers = builder._ebgpPeers;
-        this._vpnName = builder._vpnName;
     }
 
 //    public static Map<String, BgpCondition> deserialize(String filePath) {

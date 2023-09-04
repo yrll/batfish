@@ -1,9 +1,10 @@
-package org.batfish.diagnosis;
+package org.batfish.diagnosis.reference;
 
+import org.batfish.datamodel.DataPlane;
 import org.batfish.datamodel.Prefix;
 import org.batfish.datamodel.Topology;
 import org.batfish.datamodel.bgp.BgpTopology;
-import org.batfish.dataplane.ibdp.TopologyContext;
+import org.batfish.diagnosis.common.DiagnosedFlow;
 import org.batfish.diagnosis.util.KeyWord;
 
 import java.util.ArrayList;
@@ -14,74 +15,45 @@ import java.util.HashSet;
 import java.util.HashMap;
 
 /*
- * maintain the all overlay info (BGP and Static) of the network
+ * maintain the all overlay info (BGP and Static, maybe OSPF in the future) of the network
  * Suppose that the BgpTopology is connected before using the generator,
  * We will diagnose the BgpPeer connection first
  */
-public class Generator {
 
-    private static String UPT_TABLE = "updateTable";
-    private static String CONVERGE_TABLE = "convergeInfo";
-    private static String STATIC_INFO = "staticRouteInfo";
+/**
+ * Maintain the all reference control plane symbols, now we support 3 types of network:
+ *  1) BGP network
+ *     - using eBGP to connect each other
+ *     - disseminating Static/Connected routes
+ *  2) BGP + OSPF network
+ *     - using iBGP/eBGP to connect each other
+ *     - iBGP peer Ips (Loopback0 interface) rely on OSPF
+ *     - disseminating Static/Connected routes
+ *  3) OSPF network
+ *     - basic OSPF configuration: router-id [], network [] area [], ip cost []
+ */
+public class BgpGenerator {
 
-    private String _dstDevName;
-    private Prefix _dstPrefix;
+    private DiagnosedFlow _flow;
 
-    //
     private BgpForwardingTree _bgpForwardingTree;
-    // private BgpForwardingTree _newBgpTree;
 
     // 对于错误bgpTree的generator，这里的bgp topo就是错误的那个（但对new generator，初始化的时候还是用的错误的bgp topo）
     private BgpTopology _bgpTopology;
 
     private Topology _topology;
 
-    public enum Protocol {
-        IBGP("ibgp", 255),
-        EBGP("ebgp", 255),
-        MBGP("mbgp", 255),
-        STATIC("static", 60),
-        DIRECT("direct", 0),
-        BGP_LOCAL("local", 255);
-
-
-        private final String _name;
-
-        private final int _preference;
-
-        Protocol(String originType, int preference) {
-            _name = originType;
-            _preference = preference;
-        }
-
-        public String getProtocol() {
-            return _name;
-        }
-
-        public int getPreference() {
-            return _preference;
-        }
+    public BgpGenerator(DiagnosedFlow flow,
+                        BgpTopology bgpTopology,
+                        Topology layer3Topology) {
+        _flow = flow;
+        _bgpTopology = bgpTopology;
+        _topology = layer3Topology;
     }
 
-    public Generator(String nodeName, String prefix,
-                     Set<String> failedDevs,
-                     TopologyContext topologyContext) {
-        _dstDevName = nodeName;
-        _dstPrefix = Prefix.parse(prefix);
-        _bgpTopology = topologyContext.getBgpTopology();
-        _topology = topologyContext.getLayer3Topology();
-    }
-
-    public BgpForwardingTree getOldBgpTree() {
-        return _bgpForwardingTree;
-    }
 
     public BgpTopology getBgpTopology() {
         return _bgpTopology;
-    }
-
-    public String getDstDevName() {
-        return _dstDevName;
     }
 
     public BgpForwardingTree getBgpTree() {
@@ -97,6 +69,12 @@ public class Generator {
         return false;
     }
 
+    public void initializeBgpForwardingTree(DataPlane dataPlane) {
+        _bgpForwardingTree = new BgpForwardingTree(_flow, _bgpTopology);
+        if (dataPlane!=null) {
+            _bgpForwardingTree.initialize(dataPlane);
+        }
+    }
 
     private void printStringList(List<String> list, String title, String seperator) {
         System.out.println(KeyWord.PRINT_LINE_HALF + title + KeyWord.PRINT_LINE_HALF);
@@ -121,7 +99,7 @@ public class Generator {
     // 返回的节点集合就是要在MST加入的节点
     // TODO:
     private Set<String> processReachNodes(Set<String> nodes) {
-        nodes.remove(_dstDevName);
+        nodes.remove(_flow.getDstNode());
         return nodes;
     }
 
@@ -151,8 +129,6 @@ public class Generator {
 
         // 假设bgpTopo是连通的，即不需要bgpTopology的参考来构造转发树
 
-        _bgpForwardingTree = new BgpForwardingTree(_dstDevName, _dstPrefix, reqReachNodes, _bgpTopology, _topology.getNodeEdges().keySet());
-
         Set<String> reachableNodes = new HashSet<>(_bgpForwardingTree.getReachableNodes());
 
         reqReachNodes.removeAll(reachableNodes);
@@ -167,7 +143,7 @@ public class Generator {
         // TODO: 如果没有serialize到BGPTree时，没有节点和bgp ip的映射，这里会出现bestRouteFrom和nextHopForwarding不一致问题：nextHop有devName，但是bestRouteFrom没有devName
         reachableNodes.forEach(node->distanceMap.put(node, _bgpForwardingTree.getBestRouteFromPath(node).size()-1));
         // dstNode init
-        distanceMap.put(_dstDevName, 0);
+        distanceMap.put(_flow.getDstNode(), 0);
 
         // 用ref的连接信息参考作为Prim的加入节点选择（MST不止一个时）
         String curNode = _bgpForwardingTree.chooseFirstNodeHasUnreachablePeer(_bgpTopology); // 选一个已reach的开始

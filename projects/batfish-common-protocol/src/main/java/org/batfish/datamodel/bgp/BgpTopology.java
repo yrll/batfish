@@ -179,7 +179,6 @@ public final class BgpTopology {
             }
           }
     }
-
     return resNodes;
   }
 

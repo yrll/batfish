@@ -67,6 +67,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.batfish.allinone.Main;
 import org.batfish.common.BatfishException;
 import org.batfish.common.BatfishLogger;
 import org.batfish.common.BfConsts;
@@ -303,7 +304,12 @@ public class FileBasedStorage implements StorageProvider {
 
   @VisibleForTesting
   static boolean keyInDir(String key, String dirName) {
-    return key.startsWith(dirName + "/");
+    if (Main.osName.toLowerCase().startsWith("windows")) {
+      // windows系统单独处理
+      return key.startsWith(dirName + "\\");
+    } else {
+      return key.startsWith(dirName + "/");
+    }
   }
 
   @Override

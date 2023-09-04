@@ -11,8 +11,10 @@ import java.net.URI;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
@@ -76,7 +78,15 @@ public class Main {
    */
   @Nullable
   public static Map<String, String> getQuestionTemplates(boolean verbose) {
-    List<Path> questionTemplateDir = _settings.getQuestionTemplateDirs();
+    List<Path> questionTemplateDir;
+    if (org.batfish.allinone.Main.osName.toLowerCase().startsWith("windows")) {
+      questionTemplateDir = new ArrayList<>();
+      String projectRootPath = System.getProperty("user.dir");
+      questionTemplateDir.add(Paths.get(projectRootPath + "\\questions\\experimental"));
+      questionTemplateDir.add(Paths.get(projectRootPath + "\\questions\\stable"));
+    } else {
+      questionTemplateDir = _settings.getQuestionTemplateDirs();
+    }
     if (questionTemplateDir == null || questionTemplateDir.isEmpty()) {
       return null;
     }

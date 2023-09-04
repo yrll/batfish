@@ -1,0 +1,8 @@
+init-snapshot C://Users//yrl//Desktop//network//Config-Error-Localization//batfish//networks//example//candidate
+
+# validate reachability
+load-questions C://Users//yrl//Desktop//network//Config-Error-Localization//batfish//tests//questions//experimental
+test -raw C://Users//yrl//Desktop//network//Config-Error-Localization//batfish//tests//questions//experimental//reachability1.ref validate-template reachability actions="success", pathConstraints={startLocation:"aaa","endLocation":"bbb","transitLocations":"ccc",forbiddenLocations:"ddd"}, headers={srcIps:"sss",dstIps="ddd"}, ignoreFilters=False, invertSearch=False, maxTraces=1
+
+
+get routes

@@ -46,7 +46,7 @@ public class KeyWord {
     public static String PRINT_LINE = "******************************************";
     public static String PRINT_LINE_HALF = "********************";
 
-    public static String IP_STATIC = "ip route-static";
+    public static String IP_STATIC_ROUTE_PREFIX = "ip route";
     public static String PREFERENCE = "preference";
     public static String ALL_VPN_BINDING_INFO = "allVpnBindingInfo";
 
@@ -66,7 +66,7 @@ public class KeyWord {
     public static final String EXPORT = "export";
     public static final String IMPORT = "import";
 
-    public static String ENDING_TOKEN = "#";
+    public static String ENDING_TOKEN = "!";
     public static String LOOPBACK0 = "LoopBack0";
     public static String SHUTDOWN = "shutdown";
     public static String UNDO_SHUTDOWN = "undo shutdown";
@@ -84,6 +84,9 @@ public class KeyWord {
     public static String AS_NUMBER = "as-number";
     public static String CONNECTED_INTERFACE = "connect-interface";
     public static String ENABLE = "enable";
+    public static String BGP_PROCESS_COMMAND = "router bgp";
+    public static String ADDRESS_FAMILY = "address-family";
+    public static String BGP_NEIGHBOR = "neighbor";
 
 }
 

@@ -19,6 +19,7 @@ import org.batfish.common.Task;
 import org.batfish.config.Settings;
 import org.batfish.datamodel.answers.Answer;
 import org.batfish.datamodel.answers.AnswerStatus;
+import org.batfish.datamodel.answers.DataPlaneAnswerElement;
 import org.glassfish.grizzly.http.server.HttpServer;
 
 @SuppressWarnings("restriction")
@@ -153,6 +154,10 @@ public class Driver {
                     new NetworkSnapshot(settings.getContainer(), settings.getTestrig());
                 try {
                   answer = batfish.run(snapshot);
+                  // repair process
+                  if (false) {
+                    batfish.repair(snapshot, answer);
+                  }
                   if (answer.getStatus() == null) {
                     answer.setStatus(AnswerStatus.SUCCESS);
                   }
